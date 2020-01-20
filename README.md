@@ -39,4 +39,11 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Majority Element](https://leetcode.com/problems/majority-element/)
 - [Missing Positive](https://leetcode.com/problems/first-missing-positive/)
 
-
+## Task 2: Linked List (2 Days)
+- Implement a LinkedList
+- To Reverse a LinkedList
+- Merge two sorted LinkedList to a sorted one
+- Find the middle value of a LinkedList
+## Problem Sets 2:
+- [Linked List Cycle I](https://leetcode.com/problems/linked-list-cycle/)
+- [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
