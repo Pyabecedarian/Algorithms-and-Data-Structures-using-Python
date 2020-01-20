@@ -17,6 +17,7 @@ are as follows:
     > pop()/pop(pos):
     > remove(item):
 """
+from typing import Iterable
 
 
 class Node(object):
@@ -81,16 +82,34 @@ class LinkedList(object):
 
             return newList
 
-    def __setitem__(self, idx: int, value):
-        if idx < 0: idx += len(self)
-        if idx >= len(self) or idx < 0: raise KeyError('Index out of bound!')
+    def __setitem__(self, idx, value):
+        if isinstance(idx, int):
+            if idx < 0: idx += len(self)
+            if idx >= len(self) or idx < 0: raise KeyError('Index out of bound!')
 
-        p = self.head
-        while idx >= 0:
-            p = p.next
-            idx -= 1
+            p = self.head
+            while idx >= 0:
+                p = p.next
+                idx -= 1
+            p.data = value
 
-        p.data = value
+        elif isinstance(idx, slice):
+            start, stop, stride = idx.indices(len(self))
+            try:
+                it = iter(value)
+            except TypeError:
+                raise TypeError(f'values `{value}` must be iterable!')
+            else:
+                p, i = self.head, 0
+                while i <= stop:
+                    if i < start:
+                        i += 1
+                        p = p.next
+                        continue
+                    p.next.data = next(it)
+                    i += stride
+                    for k in range(stride):
+                        p = p.next
 
     def append(self, item):
         """Append item in the tail of the list"""
@@ -160,5 +179,9 @@ class LinkedList(object):
 
 if __name__ == '__main__':
     l = LinkedList([1, 2, 3, 4, 5])
+    print(l)
+
+    print(l[2:-1])
+    l[1:2] = 10
     print(l)
 
