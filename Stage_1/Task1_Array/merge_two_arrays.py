@@ -4,13 +4,12 @@
 Idea:
     Kind of the merge procedure in `merge sort`.
 """
-from collections import deque
 from Stage_1.Task1_Array.array import Array
 
 
-def merge(arr1, arr2):
+def merge(arr1: Array, arr2: Array) -> Array:
     """
-    :param arr1, arr2:  Two sorted arrays (desending order)
+    :param arr1, arr2:  Two sorted arrays (descending order)
     """
     if len(arr1) == 0: return arr2
     if len(arr2) == 0: return arr1
@@ -47,4 +46,3 @@ if __name__ == '__main__':
     b.extend([10, 9, 4])
 
     print(merge(a, b))
-
