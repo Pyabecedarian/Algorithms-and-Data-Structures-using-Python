@@ -70,7 +70,7 @@ class LinkedList(object):
             start, stop, stride = idx.indices(len(self))
             newList = LinkedList()
             p, i = self.head, 0
-            while i <= stop:
+            while i < stop:
                 if i < start:
                     i += 1
                     p = p.next
@@ -101,7 +101,7 @@ class LinkedList(object):
                 raise TypeError(f'values `{value}` must be iterable!')
             else:
                 p, i = self.head, 0
-                while i <= stop:
+                while i < stop:
                     if i < start:
                         i += 1
                         p = p.next
@@ -180,8 +180,11 @@ class LinkedList(object):
 if __name__ == '__main__':
     l = LinkedList([1, 2, 3, 4, 5])
     print(l)
+    print(l[:-1])
 
-    print(l[2:-1])
-    l[1:2] = 10
+    l[:] = [10, 20, 30, 40, 50]
+    l[2:3] = [100]
     print(l)
+
+
 
