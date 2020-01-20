@@ -47,3 +47,11 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 ## Problem Sets 2:
 - [Linked List Cycle I](https://leetcode.com/problems/linked-list-cycle/)
 - [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
+
+## Task 3: Stack (2 Days)
+- Implement a Stack
+- Simulate browser's forward and backward function ,using stack
+## Problem Sets 3:
+- [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+- [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
+- [Evaluate Reverse Polish Notatio](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
