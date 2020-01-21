@@ -55,3 +55,17 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 - [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
 - [Evaluate Reverse Polish Notatio](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
+
+## Task 4: Queue + Recursion (3 Days)
+- **Queue**
+  - Implement a Queue
+  - Implement a Cycle Queue
+- **Recursion**
+  - Write an algorithm to calculate Fibonacci number: f(n)=f(n-1)+f(n-2)
+  - Calculate n factorial: n!
+### Problem Sets 4:
+- **Queue**
+  - [Design Circular Deque](https://leetcode.com/problems/design-circular-deque/)
+  - [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+- **Recursion**
+  - [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
