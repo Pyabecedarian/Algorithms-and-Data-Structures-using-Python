@@ -32,25 +32,25 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 # Details
 
 ## Task 1: Array (2 Days)
-- Implement an Array, which supports expansion of storage capacity, dynamically
-- Combine two sorted arrays into a sorted one
+- [Implement an Array, which supports expansion of storage capacity, dynamically](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task1_Array/array.py)
+- [Combine two sorted arrays into a sorted one](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task1_Array/merge_two_arrays.py)
 ### Problem Sets 1:
 - [Three Sum](https://leetcode.com/problems/3sum/)
 - [Majority Element](https://leetcode.com/problems/majority-element/)
 - [Missing Positive](https://leetcode.com/problems/first-missing-positive/)
 
 ## Task 2: Linked List (2 Days)
-- Implement a LinkedList
-- To Reverse a LinkedList
-- Merge two sorted LinkedList to a sorted one
-- Find the middle value of a LinkedList
+- [Implement a LinkedList](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task2_LinkedList/linkedlist.py)
+- [To Reverse a LinkedList](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task2_LinkedList/reverse_linkedlist.py)
+- [Merge two sorted LinkedList to a sorted one](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task2_LinkedList/merge_linkedlists.py)
+- [Find the middle value of a LinkedList](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task2_LinkedList/middle_node.py)
 ### Problem Sets 2:
 - [Linked List Cycle I](https://leetcode.com/problems/linked-list-cycle/)
 - [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
 
 ## Task 3: Stack (2 Days)
-- Implement a Stack
-- Simulate browser's forward and backward function ,using stack
+- [Implement a Stack](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task3_Stack/stack.py)
+- [Simulate browser's forward and backward function ,using stack](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task3_Stack/browser.py)
 ### Problem Sets 3:
 - [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 - [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
@@ -58,11 +58,11 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 
 ## Task 4: Queue + Recursion (3 Days)
 - **Queue**
-  - Implement a Queue
-  - Implement a Cycle Queue
+  - [Implement a Queue]()
+  - [Implement a Cycle Queue]()
 - **Recursion**
-  - Write an algorithm to calculate Fibonacci number: f(n)=f(n-1)+f(n-2)
-  - Calculate n factorial: n!
+  - [Write an algorithm to calculate Fibonacci number: f(n)=f(n-1)+f(n-2)]()
+  - [Calculate n factorial: n!]()
 ### Problem Sets 4:
 - **Queue**
   - [Design Circular Deque](https://leetcode.com/problems/design-circular-deque/)
