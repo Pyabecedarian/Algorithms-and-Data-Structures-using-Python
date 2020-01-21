@@ -36,10 +36,11 @@ from ctypes import *
 
 
 class Array(object):
-    _types_ = {int: c_int, bool: c_bool, float: c_float, bytes: c_char, None: c_wchar_p}
+    _types_ = {int: c_int, bool: c_bool, float: c_float, bytes: c_char, None: c_wchar_p, str: c_wchar}
+    _tnames = {int: 'int', bool: 'boot', float: 'float', bytes: 'bytes', None: 'None', str: 'char'}
     _pytypes_ = {c: t for t, c in _types_.items()}
 
-    def __init__(self, pytype=int, size=1):
+    def __init__(self, pytype=None, size=1):
         """
         To initiate an array, one must specify the data type and total length
         :param pyType: The fundamental data type of each element, must be one of {int, float, bool, None, str}
@@ -49,7 +50,7 @@ class Array(object):
         self._ctype = self._match_type(pytype)
         self._size = size
         self._A = self._generate_array(self._ctype, self._size)
-        self._n = 0
+        self._n = size
         self._i = 0
 
     def __len__(self):
@@ -65,11 +66,14 @@ class Array(object):
         return (size * ctype)()
 
     def __str__(self):
-        s = '[' + ' '.join([str(self._A[i]) for i in range(self._n)]) + ']'
-        return f'Array(int, {s})'
+        s = '[' + ', '.join([str(self._A[i]) for i in range(self._n)]) + ']'
+        return f'Array({self._tnames[self.type]}, {s})'
 
     def _get_index(self, k):
-        return k if k >= 0 else self._n + k
+        if k < 0: k += len(self)
+        if not 0 <= k < len(self):
+            raise KeyError('Index out of bound!')
+        return k
 
     def __getitem__(self, k):
         k = self._get_index(k)
@@ -110,3 +114,18 @@ class Array(object):
                 self.append(next(it))
             except StopIteration:
                 break
+
+
+if __name__ == '__main__':
+    a = Array(str, 5)
+    print(a)
+    print(len(a))
+
+    a[4] = 'a'
+    print(a)
+
+    a.append('t')
+    print(a)
+
+    for i in a:
+        print(i)
