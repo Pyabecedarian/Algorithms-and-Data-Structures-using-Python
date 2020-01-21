@@ -34,7 +34,7 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 ## Task 1: Array (2 Days)
 - Implement an Array, which supports expansion of storage capacity, dynamically
 - Combine two sorted arrays into a sorted one
-## Problem Sets 1:
+### Problem Sets 1:
 - [Three Sum](https://leetcode.com/problems/3sum/)
 - [Majority Element](https://leetcode.com/problems/majority-element/)
 - [Missing Positive](https://leetcode.com/problems/first-missing-positive/)
@@ -44,14 +44,14 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - To Reverse a LinkedList
 - Merge two sorted LinkedList to a sorted one
 - Find the middle value of a LinkedList
-## Problem Sets 2:
+### Problem Sets 2:
 - [Linked List Cycle I](https://leetcode.com/problems/linked-list-cycle/)
 - [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
 
 ## Task 3: Stack (2 Days)
 - Implement a Stack
 - Simulate browser's forward and backward function ,using stack
-## Problem Sets 3:
+### Problem Sets 3:
 - [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 - [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
 - [Evaluate Reverse Polish Notatio](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
