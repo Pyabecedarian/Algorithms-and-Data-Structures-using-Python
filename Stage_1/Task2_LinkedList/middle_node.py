@@ -4,7 +4,7 @@
 Idea: Set two pointers, the second pointer takes twice the steps the first one does. When the second reaches
 the end, the first points the middle node.
 """
-from Stage_1.Task2_LinkedList.linkedlist import LinkedList
+from datastruct import LinkedList
 
 
 def middle_node(alist: LinkedList):

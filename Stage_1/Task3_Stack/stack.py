@@ -13,8 +13,7 @@ Some possible methods of stack are:
     > peek()    : returns the top item from the stack, but does not remove it
     > isEmpty() : tests to see whether the stack is empty.
 """
-from collections import deque
-from Stage_1.Task2_LinkedList.linkedlist import LinkedList
+from datastruct import LinkedList
 
 
 class Stack(object):
@@ -46,22 +45,3 @@ class Stack(object):
     def clear(self):
         while not self.isEmpty():
             self.pop()
-
-
-if __name__ == '__main__':
-    s = Stack()
-    print(s.isEmpty())
-    s.push(4)
-    s.push('dog')
-    print(s.peek())
-    s.push(True)
-    print(s)
-    print(len(s))
-
-    # deque as stack
-    d = deque()
-    d.appendleft(4)
-    d.appendleft('dog')
-    print(d[-1])
-    d.appendleft(True)
-    print(d)

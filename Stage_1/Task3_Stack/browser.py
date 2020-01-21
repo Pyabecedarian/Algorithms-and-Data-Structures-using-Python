@@ -1,7 +1,7 @@
 """
 Simulate a browser, write an algorithm to simulate `forward` and `backward` functions
 """
-from Stage_1.Task3_Stack.stack import Stack
+from datastruct import Stack
 
 
 class Browser(object):
@@ -45,7 +45,7 @@ class Browser(object):
 
 
 if __name__ == '__main__':
-    url_base = 'www.browser/'
+    url_base = 'www.simbrower.com/'
     browser = Browser()
 
     print('click 5 times')

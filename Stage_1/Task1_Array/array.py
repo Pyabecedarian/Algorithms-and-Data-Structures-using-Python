@@ -118,30 +118,3 @@ class Array(object):
                 self.append(next(it))
             except StopIteration:
                 break
-
-
-if __name__ == '__main__':
-
-    # Initialize a empty int array
-    a = Array()
-    print(a)
-
-    # Append some elements
-    a.append(1)
-    print(a, 'size:', a._size)
-    a.append(2)
-    print(a, 'size:', a._size)
-    a.append(3)
-    print(a, 'size:', a._size)
-
-    # Assignment
-    a[1] = 10
-    print(a, 'size:', a._size)
-
-    for i in a:
-        print(i)
-
-
-    b = Array(size=5)
-    b.extend(range(5))
-    print(b)

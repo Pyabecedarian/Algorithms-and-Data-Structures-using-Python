@@ -4,7 +4,7 @@
 Idea:
     Kind of the merge procedure in `merge sort`.
 """
-from Stage_1.Task1_Array.array import Array
+from datastruct import Array
 
 
 def merge(arr1: Array, arr2: Array) -> Array:

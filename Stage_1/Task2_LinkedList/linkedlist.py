@@ -175,9 +175,6 @@ class LinkedList(object):
             return True
 
 
-if __name__ == '__main__':
-    l = LinkedList([1, 2, 3, 4, 5])
-
 
 
 

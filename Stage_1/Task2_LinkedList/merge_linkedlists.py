@@ -1,7 +1,7 @@
 """
 ★ Task: To merge two ordered linkedlist into a ordered one. ★
 """
-from Stage_1.Task2_LinkedList.linkedlist import LinkedList
+from datastruct import LinkedList
 
 
 def merge_linkedlists(alist: LinkedList, blist: LinkedList) -> LinkedList:
