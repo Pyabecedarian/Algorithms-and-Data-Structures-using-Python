@@ -17,12 +17,10 @@ are as follows:
     > pop()/pop(pos):
     > remove(item):
 """
-from typing import Iterable
 
 
 class Node(object):
     """Meta class to hold the linked structure"""
-
     def __init__(self, initdata=None, _next_=None):
         self.data = initdata
         self.next = _next_
@@ -58,7 +56,7 @@ class LinkedList(object):
     def __getitem__(self, idx):
         if isinstance(idx, int):
             if idx < 0: idx += len(self)
-            if idx >= len(self) or idx < 0: raise KeyError('Index out of bound!')
+            if not 0 <= idx < len(self): raise KeyError('Index out of bound!')
 
             p = self.head
             while idx >= 0:
@@ -85,7 +83,7 @@ class LinkedList(object):
     def __setitem__(self, idx, value):
         if isinstance(idx, int):
             if idx < 0: idx += len(self)
-            if idx >= len(self) or idx < 0: raise KeyError('Index out of bound!')
+            if not 0 <= idx < len(self): raise KeyError('Index out of bound!')
 
             p = self.head
             while idx >= 0:
@@ -141,7 +139,7 @@ class LinkedList(object):
     def pop(self, pos: int = -1):
         """Pop item at position `pos`"""
         idx = pos if pos >= 0 else len(self) + pos
-        if idx >= len(self) or idx < 0: raise KeyError('Index out of bound!')
+        if not 0 <= idx < len(self): raise KeyError('Index out of bound!')
 
         p = self.head
         while idx > 0:  # stop before pos
@@ -179,12 +177,7 @@ class LinkedList(object):
 
 if __name__ == '__main__':
     l = LinkedList([1, 2, 3, 4, 5])
-    print(l)
-    print(l[:-1])
 
-    l[:] = [10, 20, 30, 40, 50]
-    l[2:3] = [100]
-    print(l)
 
 
 
