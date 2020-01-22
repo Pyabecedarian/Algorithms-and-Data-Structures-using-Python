@@ -69,3 +69,14 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
   - [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - **Recursion**
   - [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
+
+## Task 5: Sorting (3 Days)
+- [Implement Bubble Sort]()
+- [Implement Selection Sort]()
+- [Implement Insersion Sort]()
+- [Implement Merge Sort]()
+- [Impement Quick Sort]()
+- [Implement Heap Sort]()
+### Problem Sets 5:
+- (preview)[Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+- [Find the k-th Largest Number with O(n) Complexity]()
