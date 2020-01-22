@@ -58,11 +58,11 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 
 ## Task 4: Queue + Recursion (3 Days)
 - **Queue**
-  - [Implement a Queue]()
+  - [Implement a Queue](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task4_Queue_and_Recursion/queue.py)
   - [Implement a Cycle Queue]()
 - **Recursion**
-  - [Write an algorithm to calculate Fibonacci number: f(n)=f(n-1)+f(n-2)]()
-  - [Calculate n factorial: n!]()
+  - [Write an algorithm to calculate Fibonacci number: f(n)=f(n-1)+f(n-2)](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task4_Queue_and_Recursion/fibonacci.py)
+  - [Calculate n factorial: n!](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task4_Queue_and_Recursion/recursion.py)
 ### Problem Sets 4:
 - **Queue**
   - [Design Circular Deque](https://leetcode.com/problems/design-circular-deque/)
