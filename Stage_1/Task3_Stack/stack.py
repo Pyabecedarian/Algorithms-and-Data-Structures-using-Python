@@ -22,7 +22,7 @@ class Stack(object):
 
     def __str__(self):
         s = ', '.join(map(str, self.items))
-        return 'Stack([' + s + '])'
+        return 'Stack(>[' + s + '])'
 
     def __len__(self):
         return len(self.items)
@@ -45,3 +45,13 @@ class Stack(object):
     def clear(self):
         while not self.isEmpty():
             self.pop()
+
+
+if __name__ == '__main__':
+    s = Stack()
+
+    s.push(4)
+    s.push('dog')
+    s.push(True)
+
+    print(s)

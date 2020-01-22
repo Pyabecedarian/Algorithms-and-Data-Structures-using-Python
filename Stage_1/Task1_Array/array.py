@@ -34,12 +34,15 @@ use ctypes module to simulate arrays in python
 """
 from ctypes import *
 
+_types_ = {"int"  : c_int, int: c_int,
+           "bool" : c_bool, bool: c_bool,
+           "float": c_float, float: c_float,
+           "bytes": c_char, bytes: c_byte,
+           "char" : c_wchar,
+           }
+
 
 class Array(object):
-    _types_ = {int: c_int, bool: c_bool, float: c_float, bytes: c_char, None: c_wchar_p, str: c_wchar}
-    _tnames = {int: 'int', bool: 'boot', float: 'float', bytes: 'bytes', None: 'None', str: 'char'}
-    _pytypes_ = {c: t for t, c in _types_.items()}
-
     def __init__(self, pytype=None, size=1):
         """
         To initiate an array, one must specify the data type and total length
@@ -58,7 +61,7 @@ class Array(object):
 
     def _match_type(self, pyType):
         """Return ctype correspond to given python type"""
-        return self._types_[pyType]
+        return _types_[pyType]
 
     @staticmethod
     def _generate_array(ctype, size):
@@ -67,7 +70,7 @@ class Array(object):
 
     def __str__(self):
         s = '[' + ', '.join([str(self._A[i]) for i in range(self._n)]) + ']'
-        return f'Array({self._tnames[self.type]}, {s})'
+        return f'Array({self.type}, {s})'
 
     def _get_index(self, k):
         if k < 0: k += len(self)
@@ -117,15 +120,12 @@ class Array(object):
 
 
 if __name__ == '__main__':
-    a = Array(str, 5)
-    print(a)
-    print(len(a))
+    A = Array('char', 5)
+    print(A)
 
-    a[4] = 'a'
-    print(a)
+    for i in range(5):
+        A[i] = str(i)
 
-    a.append('t')
-    print(a)
+    print(A)
 
-    for i in a:
-        print(i)
+

@@ -1,6 +1,5 @@
-import sys, os
-
-sys.path.append(os.path.dirname(os.getcwd()))
+# import sys, os
+# sys.path.append(os.path.dirname(os.getcwd()))
 
 # collections
 from Stage_1.Task1_Array.array import Array

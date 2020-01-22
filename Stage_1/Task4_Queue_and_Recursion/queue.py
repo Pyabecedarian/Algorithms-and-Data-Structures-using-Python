@@ -17,7 +17,7 @@ class Queue(object):
 
     def __str__(self):
         s = ', '.join(map(str, self.items))
-        return f'Queue([ {s} ])'
+        return f'Queue([{s}]<)'
 
     def __len__(self):
         return len(self.items)
@@ -32,3 +32,20 @@ class Queue(object):
 
     def isEmpty(self):
         return len(self) == 0
+
+
+if __name__ == '__main__':
+    q = Queue()
+
+    print(q)
+
+    q.enqueue(4)
+    q.enqueue('dog')
+    q.enqueue(True)
+
+    print(q)
+    print(len(q))
+
+    q.dequeue()
+    print(q)
+    print(len(q))
