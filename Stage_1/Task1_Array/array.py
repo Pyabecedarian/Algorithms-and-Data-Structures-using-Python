@@ -34,11 +34,11 @@ use ctypes module to simulate arrays in python
 """
 from ctypes import *
 
-_types_ = {"int"  : c_int, int: c_int,
-           "bool" : c_bool, bool: c_bool,
-           "float": c_float, float: c_float,
-           "bytes": c_char, bytes: c_byte,
-           "char" : c_wchar,
+_types_ = {int: [c_int, "int"],
+           bool: [c_bool, "bool"],
+           float: [c_float, "float"],
+           bytes: [c_char, "bytes"],
+           str: [c_wchar, "char"], # 1-character string
            }
 
 
@@ -49,19 +49,16 @@ class Array(object):
         :param pyType: The fundamental data type of each element, must be one of {int, float, bool, None, str}
         :param size: Indicate how many elements being stored
         """
-        self.type = pytype
-        self._ctype = self._match_type(pytype)
+        self._pytype = pytype
+        self._ctype, self._tname = _types_[pytype]
         self._size = size
+        self._n = size  # current length
+        self._i = 0     # for iteration
+
         self._A = self._generate_array(self._ctype, self._size)
-        self._n = size
-        self._i = 0
 
     def __len__(self):
         return self._n
-
-    def _match_type(self, pyType):
-        """Return ctype correspond to given python type"""
-        return _types_[pyType]
 
     @staticmethod
     def _generate_array(ctype, size):
@@ -70,7 +67,7 @@ class Array(object):
 
     def __str__(self):
         s = '[' + ', '.join([str(self._A[i]) for i in range(self._n)]) + ']'
-        return f'Array({self.type}, {s})'
+        return f'Array({self._tname}, {s})'
 
     def _get_index(self, k):
         if k < 0: k += len(self)
@@ -84,6 +81,12 @@ class Array(object):
 
     def __setitem__(self, k, v):
         k = self._get_index(k)
+        if not isinstance(v, self._pytype):
+            try:
+                v = self._pytype(v)
+            except ValueError:
+                raise ValueError(f'could not convert {type(v)} to {self._tname}')
+
         self._A[k] = v
 
     def _resize(self):
@@ -120,12 +123,7 @@ class Array(object):
 
 
 if __name__ == '__main__':
-    A = Array('char', 5)
-    print(A)
-
-    for i in range(5):
-        A[i] = str(i)
-
-    print(A)
-
-
+    a = Array(int, 5)
+    for i in range(4):
+        a[i] = i + 1
+    print(a)
