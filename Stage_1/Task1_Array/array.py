@@ -1,7 +1,7 @@
 """
 ★ Task: To implement an array, supporting dynamic storage expansion ★
 Cause we have python's built-in list, the concept and implementation of array is invisible in daily use.
-But understanding the idea of array, which is widely used in other languages, and the implementation can
+But to understand the idea of array, which is widely used in other languages, and its implementation can
 help us dig deeper and know better about python list.
 ==========  Big-O Efficiency of Python list Operations  ==========
     Operation                             Big-O Efficiency
