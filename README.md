@@ -71,12 +71,12 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
   - [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
 
 ## Task 5: Sorting (3 Days)
-- [Implement Bubble Sort]()
-- [Implement Selection Sort]()
-- [Implement Insersion Sort]()
-- [Implement Merge Sort]()
-- [Implement Quick Sort]()
-- [Implement Heap Sort]()
+- [Implement Bubble Sort](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task5_Sorting/bubble_sort.py)
+- [Implement Selection Sort](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task5_Sorting/selection_sort.py)
+- [Implement Insersion Sort](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task5_Sorting/insertion_sort.py)
+- [Implement Merge Sort](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task5_Sorting/merge_sort.py)
+- [Implement Quick Sort](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task5_Sorting/quick_sort.py)
+- (*)[Implement Heap Sort]()
 ### Problem Sets 5:
 - (review)[Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [Find the k-th Largest Number with O(n) Complexity]()
