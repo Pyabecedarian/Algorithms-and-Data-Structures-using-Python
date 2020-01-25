@@ -1,7 +1,7 @@
 """
 ★ Task: To implement an array, supporting dynamic storage expansion ★
 Cause we have python's built-in list, the concept and implementation of array is invisible in daily use.
-But understanding the idea of array, which is widely used in other languages, and the implementation can
+But to understand the idea of array, which is widely used in other languages, and its implementation can
 help us dig deeper and know better about python list.
 ==========  Big-O Efficiency of Python list Operations  ==========
     Operation                             Big-O Efficiency
@@ -25,7 +25,7 @@ multiply                                        O(nk)
 ==================================================================
 As shown in the table above, python list is efficient in indexing/assignment and append/pop in the end
 of the list. We also have to remember that python list support any type of data being stored.
-An array in C/C++ is a linear structure allocated in a continuous space in memory, which performs O(1)
+An array in C/C++ is a linear structure allocated in a contiguous space in memory, which performs O(1)
 efficiency in indexing/assignment, but can only store fixed number of data with same data type.
 An linked-list, however, can store any type and any number of data with O(1) efficiency in append/pop
 in the end.
