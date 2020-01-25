@@ -25,7 +25,7 @@ multiply                                        O(nk)
 ==================================================================
 As shown in the table above, python list is efficient in indexing/assignment and append/pop in the end
 of the list. We also have to remember that python list support any type of data being stored.
-An array in C/C++ is a linear structure allocated in a continuous space in memory, which performs O(1)
+An array in C/C++ is a linear structure allocated in a contiguous space in memory, which performs O(1)
 efficiency in indexing/assignment, but can only store fixed number of data with same data type.
 An linked-list, however, can store any type and any number of data with O(1) efficiency in append/pop
 in the end.
