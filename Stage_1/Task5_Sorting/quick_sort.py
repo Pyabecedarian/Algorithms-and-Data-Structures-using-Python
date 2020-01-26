@@ -7,9 +7,9 @@ Quick Sort
 
     Recursively invoke the partition on both parts until the part size is 1 (base case).
 
-    To find the `split point`, it begins by locating two position markers: left_marker & right marker, at the
+    To find the `split point`, it begins by locating two position markers: left_marker & right_marker, at the
     beginning and the end of the remaining items in the list. The goal of this process is to move those items
-    that are on the wrong side with respect to the pivot while also converging on the split point.
+    that are on the wrong side with respect to the pivot while converging on the split point.
 
                                 [5, 1, 3, 9, 2, 4, 7]
                                  *  ↑              ↑    pivot: 5
@@ -25,17 +25,17 @@ Quick Sort
                                 [2, 1, 3, 4, 5, 9, 7]
                                              *          exchange 5 and 2
                                 [2, 1, 3, 4]  [9, 7]
-                                 *  ↑     ↑    *  ↑       recursive call on parts
+                                 *  ↑     ↑    *  ↑     recursive call on parts
                                                   ↑
     The choose of `pivot value` is the key to quick sort. A good pivot can split the list in half. However,
     a bad pivot can't not split the list (extremely skewed partition), it'll cost extra expenses.
-    But if the pivot is ok, the quick sort can perform just as good as merge sort while not using any
+    But if the pivot is good, the quick sort can perform just as good as merge sort while not using any
     additional storage.
 
 Analysis
     Best case:
-        If each partition split the list in half, the result is `log n` divisions. In order to find the split point,
-        each of the `n` items need to be checked against the pivot value. The result is O(n·log n)
+        If each partition splits the list in half, the result is `log n` divisions. In order to find the split
+        point, each of the `n` items need to be checked against the pivot value. The result is O(n·log n)
     Bad case:
         If each partition cannot find the middle to split, this can causes a extremely skewed division, one part
         contains 0 items, the other n - 1. Then sorting a list of n - 1 divides into a list of size 0 and a list of
