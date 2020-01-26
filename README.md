@@ -80,3 +80,10 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 ### Problem Sets 5:
 - (review)[Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [Find the k-th Largest Number with O(n) Complexity]()
+
+## Task 6: Binary Search (2 Days)
+- [Implement Binary Search on sorted list]()
+- [Implement a `fuzzy` Binary Search algorithm (Search the first item that is larger than or equal to the given item)]()
+### Problem Sets 6:
+- (review)[Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+- [Sqrt(x)](https://leetcode.com/problems/sqrtx/)
