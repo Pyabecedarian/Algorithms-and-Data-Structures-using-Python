@@ -43,11 +43,23 @@ _types_ = {int: [c_longlong, "int"],
            }
 
 
+def _new_array(ctype, size):
+    """Create an array"""
+    return (size * ctype)()
+
+
+def _get_index(k, size):
+    if k < 0: k += size
+    if not 0 <= k < size:
+        raise KeyError('Index out of bound!')
+    return k
+
+
 class Array(object):
     def __init__(self, pytype=None, size=1):
         """
         To initiate an array, one must specify the data type and total length
-        :param pyType: The fundamental data type of each element, must be one of {int, float, bool, None, str}
+        :param pytype: The fundamental data type of each element, must be one of {int, float, bool, None, str}
         :param size: Indicate how many elements being stored
         """
         self._pytype = pytype
@@ -55,7 +67,7 @@ class Array(object):
         self._size = size
         self._n = 0  # current length
         self._i = 0  # for iteration
-        self._A = self._new_array(self._ctype, self._size)
+        self._A = _new_array(self._ctype, self._size)
 
     def __len__(self):
         return self._n
@@ -75,11 +87,11 @@ class Array(object):
         return self._A[i]
 
     def __getitem__(self, k):
-        k = self._get_index(k)
+        k = _get_index(k, len(self))
         return self._A[k]
 
     def __setitem__(self, k, v):
-        k = self._get_index(k)
+        k = _get_index(k, len(self))
         if self._pytype is None:
             pass
 
@@ -90,21 +102,10 @@ class Array(object):
                 raise ValueError(f'could not convert {type(v)} to {self._tname}')
         self._A[k] = v
 
-    @staticmethod
-    def _new_array(ctype, size):
-        """Create an array"""
-        return (size * ctype)()
-
-    def _get_index(self, k):
-        if k < 0: k += len(self)
-        if not 0 <= k < len(self):
-            raise KeyError('Index out of bound!')
-        return k
-
     def _resize(self):
         """If try to add more elements in array, it'll automatically resize"""
         self._size, oldSize = 2 * self._size, self._size
-        tmpA = self._new_array(self._ctype, self._size)
+        tmpA = _new_array(self._ctype, self._size)
         for i in range(self._n):
             tmpA[i] = self._A[i]
         self._A = tmpA
@@ -137,7 +138,7 @@ class Array(object):
 
     def pop(self, k=-1):
         """Pop the item at idx"""
-        k = self._get_index(k)
+        k = _get_index(k, len(self))
         res = self._A[k]
         while k < len(self) - 1:
             self._A[k] = self._A[k + 1]
@@ -148,7 +149,7 @@ class Array(object):
 
 if __name__ == '__main__':
     a = Array(int, 1)
-    a.extend([1,2,3,4])
+    a.extend([1, 2, 3, 4])
     print(a)
     a.pop()
     print(a)
