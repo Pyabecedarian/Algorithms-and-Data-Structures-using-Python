@@ -49,8 +49,8 @@ class LinkedList(object):
         else:
             raise StopIteration
 
-    def __str__(self):
-        s = ' '.join([str(i) for i in self])
+    def __repr__(self):
+        s = ', '.join([str(i) for i in self])
         return 'LinkedList([' + s + '])'
 
     def __getitem__(self, idx):
@@ -173,8 +173,3 @@ class LinkedList(object):
             p.next = p.next.next
             self._size -= 1
             return True
-
-
-
-
-

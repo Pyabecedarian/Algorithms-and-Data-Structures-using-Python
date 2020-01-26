@@ -3,7 +3,8 @@
 
 # collections
 from Stage_1.Task1_Array.array import Array
-from Stage_1.Task2_LinkedList.linkedlist import LinkedList
+from Stage_1.Task2_LinkedList.linkedlist import Node, LinkedList
+from .List import BiNode, List
 
 # abstract data type
 from Stage_1.Task3_Stack.stack import Stack

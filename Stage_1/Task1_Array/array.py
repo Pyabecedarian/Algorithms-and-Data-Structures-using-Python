@@ -34,11 +34,12 @@ use ctypes module to simulate arrays in python
 """
 from ctypes import *
 
-_types_ = {int: [c_int, "int"],
+_types_ = {int: [c_longlong, "int"],
            bool: [c_bool, "bool"],
            float: [c_float, "float"],
            bytes: [c_char, "bytes"],
-           str: [c_wchar, "char"], # 1-character string
+           str: [c_wchar_p, "str"],
+           None: [c_void_p, "None"],
            }
 
 
@@ -52,56 +53,16 @@ class Array(object):
         self._pytype = pytype
         self._ctype, self._tname = _types_[pytype]
         self._size = size
-        self._n = size  # current length
-        self._i = 0     # for iteration
-
-        self._A = self._generate_array(self._ctype, self._size)
+        self._n = 0  # current length
+        self._i = 0  # for iteration
+        self._A = self._new_array(self._ctype, self._size)
 
     def __len__(self):
         return self._n
 
-    @staticmethod
-    def _generate_array(ctype, size):
-        """Create an array"""
-        return (size * ctype)()
-
-    def __str__(self):
+    def __repr__(self):
         s = '[' + ', '.join([str(self._A[i]) for i in range(self._n)]) + ']'
         return f'Array({self._tname}, {s})'
-
-    def _get_index(self, k):
-        if k < 0: k += len(self)
-        if not 0 <= k < len(self):
-            raise KeyError('Index out of bound!')
-        return k
-
-    def __getitem__(self, k):
-        k = self._get_index(k)
-        return self._A[k]
-
-    def __setitem__(self, k, v):
-        k = self._get_index(k)
-        if not isinstance(v, self._pytype):
-            try:
-                v = self._pytype(v)
-            except ValueError:
-                raise ValueError(f'could not convert {type(v)} to {self._tname}')
-
-        self._A[k] = v
-
-    def _resize(self):
-        """If try to add more elements in array, it'll automatically resize"""
-        self._size, oldSize = 2 * self._size, self._size
-        tmpA = self._generate_array(self._ctype, self._size)
-        for i in range(self._n):
-            tmpA[i] = self._A[i]
-        self._A = tmpA
-
-    def append(self, v):
-        if self._n >= self._size:
-            self._resize()
-        self._A[self._n] = v
-        self._n += 1
 
     def __iter__(self):
         return self
@@ -113,6 +74,48 @@ class Array(object):
         i, self._i = self._i, self._i + 1
         return self._A[i]
 
+    def __getitem__(self, k):
+        k = self._get_index(k)
+        return self._A[k]
+
+    def __setitem__(self, k, v):
+        k = self._get_index(k)
+        if self._pytype is None:
+            pass
+
+        elif not isinstance(v, self._pytype):
+            try:
+                v = self._pytype(v)
+            except ValueError:
+                raise ValueError(f'could not convert {type(v)} to {self._tname}')
+        self._A[k] = v
+
+    @staticmethod
+    def _new_array(ctype, size):
+        """Create an array"""
+        return (size * ctype)()
+
+    def _get_index(self, k):
+        if k < 0: k += len(self)
+        if not 0 <= k < len(self):
+            raise KeyError('Index out of bound!')
+        return k
+
+    def _resize(self):
+        """If try to add more elements in array, it'll automatically resize"""
+        self._size, oldSize = 2 * self._size, self._size
+        tmpA = self._new_array(self._ctype, self._size)
+        for i in range(self._n):
+            tmpA[i] = self._A[i]
+        self._A = tmpA
+
+    def append(self, v):
+        if self._n >= self._size:
+            self._resize()
+
+        self._A[self._n] = v
+        self._n += 1
+
     def extend(self, iterable):
         it = iter(iterable)
         while True:
@@ -121,9 +124,34 @@ class Array(object):
             except StopIteration:
                 break
 
+    def insert(self, i, v):
+        # 1. append v
+        self.append(v)
+        # 2. move v to index i
+        j = len(self) - 1
+        while j > i:
+            tmp = self._A[j - 1]
+            self._A[j - 1] = self._A[j]
+            self._A[j] = tmp
+            j -= 1
+
+    def pop(self, k=-1):
+        """Pop the item at idx"""
+        k = self._get_index(k)
+        res = self._A[k]
+        while k < len(self) - 1:
+            self._A[k] = self._A[k + 1]
+            k += 1
+        self._n -= 1
+        return res
+
 
 if __name__ == '__main__':
-    a = Array(int, 5)
-    for i in range(4):
-        a[i] = i + 1
+    a = Array(int, 1)
+    a.extend([1,2,3,4])
+    print(a)
+    a.pop()
+    print(a)
+
+    a.append(5)
     print(a)
