@@ -76,7 +76,7 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Implement Insersion Sort](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task5_Sorting/insertion_sort.py)
 - [Implement Merge Sort](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task5_Sorting/merge_sort.py)
 - [Implement Quick Sort](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task5_Sorting/quick_sort.py)
-- (*)[Implement Heap Sort]()
+- (*)Implement Heap Sort
 ### Problem Sets 5:
 - (review)[Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [Find the k-th Largest Number with O(n) Complexity]()
@@ -87,3 +87,9 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 ### Problem Sets 6:
 - (review)[Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [Sqrt(x)](https://leetcode.com/problems/sqrtx/)
+
+## Task 7: Hasing (3 Days)
+- [Implement a Hash table using LinkedList to solve hash collision]()
+- [Implement a LRU cache elimination algorithm]()
+### Problem Set 7:
+- [Two Sum](https://leetcode.com/problems/two-sum/)
