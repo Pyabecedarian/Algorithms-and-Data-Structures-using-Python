@@ -96,7 +96,7 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 
 ### Task 8: String (2 Days)
 - [Implement a Character Repertoire containing 26 english letters using `Trie` tree]()
-- [Implement a naive string matching algorithm]()
+- [Implement a simple string matching algorithm]()
 #### Problem Sets 8:
 - [Reverse String](https://leetcode.com/problems/reverse-string/)
 - [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
