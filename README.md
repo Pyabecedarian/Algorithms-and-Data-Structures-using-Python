@@ -3,7 +3,7 @@
 ## Goal
   - Knowledge of basic **Data Structure** and **Algorithm** 
   - Understand the implementation of various data structures
-  - Know how to implement algorithms using data structure
+  - Know how to implement algorithms using data structures
   
 ## Path
 Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> Hash -> String -> Binary Tree -> Heap -> Map -> Back Tracking -> Divid-and-Conquer -> Dynamic Programming
@@ -15,7 +15,7 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
   - Task 2 (2 Days): Linked List
   - Task 3 (2 Days): Stack
   - Task 4 (3 Days): Queue + Recursion
-  - Task 5 (3 Days): Sort
+  - Task 5 (3 Days): Sorting
   - Task 6 (2 Days): Binary Search
 
 - STAGE **TWO**
