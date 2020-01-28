@@ -1,9 +1,10 @@
 """
-We have now Array and LinkedList. It's enough to create a new container that supports any type of data and
-can indexing/assignment operations in O(1) time, like python list.
+We have now Array and LinkedList. It's enough to create a new type of container that can store
+any type of data and support indexing/assignment operations in O(1) time, like python list.
 
-Use an Array to store all addressed of Node for O(1) indexing/assignment of LinkedList
-Use an LinkedList to store all data
+Idea:
+    Use an Array to store all addresses of Node (for O(1) indexing/assignment)
+    Use an LinkedList to store all data (for supporting any type)
 """
 from datastruct import Array
 import ctypes as c
@@ -23,7 +24,9 @@ def get_index(idx, size):
     return idx
 
 
-class BiNode(object):
+class DNode(object):
+    """List is a doubly linked structure"""
+
     def __init__(self, initdata=None, _prev_=None, _next_=None):
         self.data = initdata
         self.prev = _prev_
@@ -33,7 +36,7 @@ class BiNode(object):
 class List(object):
     def __init__(self, iterable=[]):
         self._addrs = Array(None)  # store all node's ids for O(1) indexing
-        self.head = BiNode()
+        self.head = DNode()
         self.tail = self.head
         self._size = 0
 
@@ -66,19 +69,34 @@ class List(object):
             return deref(self._addrs[idx]).data
 
         elif isinstance(idx, slice):
-            pass
+            start, stop, stride = idx.indices(len(self))
+            newList = List()
+            for i in range(start, stop, stride):
+                newList.append(deref(self._addrs[i]).data)
+            return newList
 
-    def __setitem__(self, idx, item):
+    def __setitem__(self, idx, obj):
         if isinstance(idx, int):
             idx = get_index(idx, len(self))
-            deref(self._addrs[idx]).data = item
+            deref(self._addrs[idx]).data = obj
 
         elif isinstance(idx, slice):
-            pass
+            start, stop, stride = idx.indices(len(self))
+            it = iter(obj)
+            for i in range(start, stop, stride):
+                deref(self._addrs[i]).data = next(it)
+
+    def __contains__(self, obj):
+        found = False
+        for item in self:
+            if item == obj:
+                found = True
+                break
+        return found
 
     def append(self, obj):
         """Create a new Node, attach to the end of the list"""
-        tmpNode = BiNode(obj, self.tail)
+        tmpNode = DNode(obj, self.tail)
         self.tail.next = tmpNode
         self.tail = tmpNode
         self._size += 1
@@ -115,7 +133,7 @@ class List(object):
         idx = get_index(idx, len(self))
 
         node_idx = deref(self._addrs[idx])
-        tmpNode = BiNode(obj, node_idx.prev, node_idx)
+        tmpNode = DNode(obj, node_idx.prev, node_idx)
         node_idx.prev.next = tmpNode
         node_idx.prev = tmpNode
         self._addrs.insert(idx, id(tmpNode))
@@ -147,18 +165,9 @@ class List(object):
 
 
 if __name__ == '__main__':
-    l = List([1,2,3, 'abc', True, 9.1])
+    l = List([1, 'abc', True, 9.1])
     print(l)
+    print(l[-1])
 
-    print(l.index(9.1))
-
-    l.pop(0)
-    l.pop(2)
-    l.pop()
+    l[:-1] = ['s', 1, 0.1]
     print(l)
-
-    l.append('c')
-    print(l)
-
-
-
