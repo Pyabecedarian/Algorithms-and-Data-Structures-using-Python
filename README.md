@@ -89,7 +89,15 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Sqrt(x)](https://leetcode.com/problems/sqrtx/)
 
 ## Task 7: Hasing (3 Days)
-- [Implement a Hash table using LinkedList to solve hash collision]()
-- [Implement a LRU cache elimination algorithm]()
+- [Implement a Hash table using LinkedList to solve hash collision](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task7_Hasing/hash_table.py)
+- [Implement a LRU cache elimination algorithm](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task7_Hasing/LRU_cache_elimination.py)
 ### Problem Set 7:
 - [Two Sum](https://leetcode.com/problems/two-sum/)
+
+## Task 8: String (2 Days)
+- [Implement a Character Repertoire containing 26 english letters using `Trie` tree]()
+- [Implement a naive string matching algorithm]()
+### Problem Sets 8:
+- [Reverse String](https://leetcode.com/problems/reverse-string/)
+- [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
+- [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
