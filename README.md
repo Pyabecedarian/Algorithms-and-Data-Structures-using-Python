@@ -32,8 +32,8 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 ## Details
 
 ### Task 1: Array (2 Days)
-- Implement an Array, which supports expansion of storage capacity, dynamically [>](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task1_Array/array.py)
-- Combine two sorted arrays into a sorted one [>](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task1_Array/merge_two_arrays.py)
+- Implement an Array, which supports expansion of storage capacity, dynamically [ >>>](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task1_Array/array.py)
+- Combine two sorted arrays into a sorted one [ >>>](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task1_Array/merge_two_arrays.py)
 #### Problem Sets 1:
 - [Three Sum](https://leetcode.com/problems/3sum/)
 - [Majority Element](https://leetcode.com/problems/majority-element/)
