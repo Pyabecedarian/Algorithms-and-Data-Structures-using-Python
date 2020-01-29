@@ -95,7 +95,7 @@ class HashTable(object):
 
     def __getitem__(self, key):
         v = self.get(key)
-        if not v:
+        if v is None:
             raise KeyError(f'{key}')
         else:
             return v
@@ -105,7 +105,15 @@ class HashTable(object):
 
     def _hash(self, key: int):
         """Very simple hash function that only support int value"""
-        return key % self._size
+        hashvalue = 0
+        if isinstance(key, int):
+            hashvalue = key
+        elif isinstance(key, str):
+            for i, c in enumerate(key):
+                hashvalue += (i+1) * ord(c)
+
+        hashvalue = hashvalue % self._size
+        return hashvalue
 
     def put(self, key, value):
         hash_value = self._hash(key)
@@ -119,10 +127,11 @@ class HashTable(object):
             try:
                 i = self.keys[hash_value].index(key)
             except ValueError:
-                # key is not in List
+                # key is not in List, append new key and value
                 self.keys[hash_value].append(key)
+                self.values[hash_value].append(value)
             else:
-                # key is in list
+                # key is already in list, change value
                 self.values[hash_value][i] = value
 
     def get(self, key, default=None):
@@ -140,15 +149,10 @@ class HashTable(object):
 
 
 if __name__ == '__main__':
-    t = HashTable()
-    t.put(1, 'one')
-    t.put(2, 'two')
-    print(t)
+    t = HashTable(53)
+    t['a'] = 0
+    t[97] = 'a'
 
-    t[5] = 'five'
-    print(t)
-    print(t[5])
+    print(t['a'])
 
-    del t[5]
 
-    print(t)

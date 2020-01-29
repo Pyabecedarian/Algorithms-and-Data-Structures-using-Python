@@ -148,11 +148,5 @@ class Array(object):
 
 
 if __name__ == '__main__':
-    a = Array(int, 1)
-    a.extend([1, 2, 3, 4])
-    print(a)
-    a.pop()
-    print(a)
-
-    a.append(5)
-    print(a)
+    a = Array(None, 26)
+    print(a[25])

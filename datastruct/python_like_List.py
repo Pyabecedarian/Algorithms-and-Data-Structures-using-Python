@@ -11,7 +11,9 @@ import ctypes as c
 
 
 def deref(id):
-    """Dereference the object from id"""
+    """Dereference the object from id
+    :argument id: int(c_longlong), The id of an object, returned by id(obj)
+    """
     return c.cast(id, c.py_object).value
 
 
