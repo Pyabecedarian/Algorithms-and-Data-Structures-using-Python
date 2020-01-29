@@ -56,7 +56,7 @@ def _get_index(k, size):
 
 
 class Array(object):
-    def __init__(self, pytype=None, size=1):
+    def __init__(self, pytype=None, size=1, *args):
         """
         To initiate an array, one must specify the data type and total length
         :param pytype: The fundamental data type of each element, must be one of {int, float, bool, None, str}
@@ -68,6 +68,9 @@ class Array(object):
         self._n = 0  # current length
         self._i = 0  # for iteration
         self._A = _new_array(self._ctype, self._size)
+
+        if 'full' in args:
+            self._n = size
 
     def __len__(self):
         return self._n
@@ -148,5 +151,8 @@ class Array(object):
 
 
 if __name__ == '__main__':
+    a = Array(None, 26, 'full')
+    print(a)
+
     a = Array(None, 26)
-    print(a[25])
+    print(a)
