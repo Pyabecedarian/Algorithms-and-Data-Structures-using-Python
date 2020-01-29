@@ -95,7 +95,7 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Two Sum](https://leetcode.com/problems/two-sum/)
 
 ### Task 8: String (2 Days)
-- [Implement a Character Repertoire containing 26 english letters using `Trie` tree]()
+- [Implement a Character Repertoire containing 26 english letters using `Trie` tree](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task8_String/trie.py)
 - [Implement a simple string matching algorithm]()
 #### Problem Sets 8:
 - [Reverse String](https://leetcode.com/problems/reverse-string/)
