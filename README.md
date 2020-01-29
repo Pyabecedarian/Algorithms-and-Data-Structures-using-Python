@@ -59,7 +59,7 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 ### Task 4: Queue + Recursion (3 Days)
 - **Queue**
   - [Implement a Queue](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task4_Queue_and_Recursion/queue.py)
-  - [Implement a Cycle Queue]()
+  - Implement a Cycle Queue
 - **Recursion**
   - [Write an algorithm to calculate Fibonacci number: f(n)=f(n-1)+f(n-2)](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task4_Queue_and_Recursion/fibonacci.py)
   - [Calculate n factorial: n!](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task4_Queue_and_Recursion/recursion.py)
@@ -79,11 +79,11 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - (*)Implement Heap Sort
 #### Problem Sets 5:
 - (review)[Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
-- [Find the k-th Largest Number with O(n) Complexity]()
+- Find the k-th Largest Number with O(n) Complexity
 
 ### Task 6: Binary Search (2 Days)
-- [Implement Binary Search on sorted list]()
-- [Implement a `fuzzy` Binary Search algorithm (Search the first item that is larger than or equal to the given item)]()
+- [Implement Binary Search on sorted list](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task6_Binary_Search/binary_search.py)
+- [Implement a `fuzzy` Binary Search algorithm (Search the first item that is larger than or equal to the given item)](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task6_Binary_Search/fuzzy_binary_search.py)
 #### Problem Sets 6:
 - (review)[Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [Sqrt(x)](https://leetcode.com/problems/sqrtx/)
@@ -96,7 +96,7 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 
 ### Task 8: String (2 Days)
 - [Implement a Character Repertoire containing 26 english letters using `Trie` tree](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task8_String/trie.py)
-- [Implement a simple string matching algorithm]()
+- Implement a simple string matching algorithm
 #### Problem Sets 8:
 - [Reverse String](https://leetcode.com/problems/reverse-string/)
 - [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
