@@ -102,10 +102,10 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
 - [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
 
-### Task 9: Binary Tree (2 Days)
+### Task 9: Binary Tree (3 Days)
 - Implement a Binary Tree, supporting *insert*, *delete* and *search* methods
 - Find the successor/predecessor node of a node in a tree
-- Implement *preorder*, *indorder*, *postorder* and *layer* traversal
+- Implement the *preorder*, *indorder*, *postorder* and *layer* traversal
 - Complete leecode [98](), [102](), [107]()
 #### Problem Sets 9:
 - [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
