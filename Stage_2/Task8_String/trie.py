@@ -4,7 +4,7 @@ Trie Tree
     a particular way, words and strings can be retrieved from the structure by traversing down a branch path
     of the tree.
                                        *
-                                     a - z  (each letter has a flag)
+                                     a - z  (each node has a flag)
                                      /   \
                                     *     *
                                 a - z     a - z
