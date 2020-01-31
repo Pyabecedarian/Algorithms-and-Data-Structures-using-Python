@@ -103,9 +103,9 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
 
 ### Task 9: Binary Tree (3 Days)
-- Implement a Binary Tree, supporting *insert*, *delete* and *search* methods
-- Find the successor/predecessor node of a node in a tree
-- Implement the *preorder*, *indorder*, *postorder* and *layer* traversal
+- Implement a Binary Tree, supporting *insert*, *delete* and *search* methods [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task9_Binary_Tree/binary_tree.py)
+- Find the successor/predecessor node of a node in a tree 
+- Implement the *preorder*, *indorder*, *postorder* and *layer* traversal [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task9_Binary_Tree/traversals.py)
 - Complete leecode [98](), [102](), [107]()
 #### Problem Sets 9:
 - [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
