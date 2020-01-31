@@ -49,12 +49,14 @@ class TrieNode(object):
 class Trie(object):
     def __init__(self):
         self.root = TrieNode()
-        self.convert = HashTable(53)
+        self.convert = HashTable(53)  # `53` is set appropriately that neither not too large to waste memory nor
+                                      # too small to increase the probability of hash collision
 
         for i, c in enumerate('abcdefghijklmnopqrstuvwxyz'):
             self.convert[c] = i
 
     def insert(self, word: str):
+        """Insert a word into the Trie"""
         currNode = self.root
         for c in word:
             idx = self.convert[c]
@@ -68,6 +70,7 @@ class Trie(object):
             currNode.flag = True
 
     def search(self, word: str) -> bool:
+        """Search if a word exists in the Trie"""
         found = False
         currNode = self.root
         for c in word:
@@ -82,6 +85,7 @@ class Trie(object):
         return found
 
     def startsWith(self, prefix: str) -> bool:
+        """Determine whether the input string is a prefix or not"""
         found = True
         currNode = self.root
         for c in prefix:

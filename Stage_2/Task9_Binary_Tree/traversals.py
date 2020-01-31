@@ -45,6 +45,7 @@ def inorder(btree: BinaryTree) -> List:
 
 
 def printMathExp(btree: BinaryTree) -> str:
+    """Print the whole math expression"""
     s = ''
     if btree is not None:
         if btree.left is not None:
