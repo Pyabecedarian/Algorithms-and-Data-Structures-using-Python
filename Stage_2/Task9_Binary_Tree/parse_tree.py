@@ -24,7 +24,7 @@ def build_parse_tree(fpexp):
     """
     fpexp = fpexp.split()
     tree = BinaryTree()
-    pStack = Stack()
+    pStack = Stack()  # with the help of stack, we can get the parent node back with respect to current node
 
     pStack.push(tree)
     currTree = tree
@@ -61,8 +61,7 @@ def evaluate(parseTree: BinaryTree):
         return parseTree.root
 
 
-
-
 if __name__ == '__main__':
-    pt = build_parse_tree("( ( 1 + 5 ) * 3 )")
+    pt = build_parse_tree("( ( 10 + 5 ) * 3 )")
+    print(pt)
     print(evaluate(pt))
