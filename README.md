@@ -22,9 +22,10 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
   - Task 7 (3 Days): Hash
   - Task 8 (2 Days): String
   - Task 9 (2 Days): Binary Tree
+  - Task 10 (2 Days): Heap
   
 - STAGE **THREE**
-  - Task 10 (2 Days): Heap
+  
   - Task 11 (4 Days): Map
   - Task 12 (3 Days): Recursion + Back Tracking + Divide-and-Conquer
 
@@ -102,7 +103,7 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
 - [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
 
-### Task 9: Binary Tree (3 Days)
+### Task 9: Binary Tree (2 Days)
 - Implement a Binary Tree, supporting *insert*, *delete* and *search* methods [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task9_Binary_Tree/binary_tree.py)
 - Find the successor/predecessor node of a node in a tree 
 - Implement the *preorder*, *indorder*, *postorder* and *layer* traversal [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task9_Binary_Tree/traversals.py)
@@ -111,3 +112,11 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
 - [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 - [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
+
+### Task 10: Heap (2 Days)
+- Implement a *Min Heap* or *Max Heap* or *Priority Queue*
+- Write a heap sort algorithm
+- Merge k sorted list using priority queue
+- Find the top-k largest number in a collection of numbers
+#### Problem Sets 10:
+- [Path Sum](https://leetcode.com/problems/path-sum/)
