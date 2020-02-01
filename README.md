@@ -41,7 +41,7 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Majority Element](https://leetcode.com/problems/majority-element/)
 - [Missing Positive](https://leetcode.com/problems/first-missing-positive/)
 
----
+___
 
 ### Task 2: Linked List (2 Days)
 - Implement a LinkedList [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task2_LinkedList/linkedlist.py)
