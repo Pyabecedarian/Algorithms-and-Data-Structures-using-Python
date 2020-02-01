@@ -40,9 +40,8 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Three Sum](https://leetcode.com/problems/3sum/)
 - [Majority Element](https://leetcode.com/problems/majority-element/)
 - [Missing Positive](https://leetcode.com/problems/first-missing-positive/)
-
-***
-
+    
+    
 ### Task 2: Linked List (2 Days)
 - Implement a LinkedList [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task2_LinkedList/linkedlist.py)
 - To Reverse a LinkedList [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task2_LinkedList/reverse_linkedlist.py)
@@ -51,7 +50,8 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 #### Problem Sets 2:
 - [Linked List Cycle I](https://leetcode.com/problems/linked-list-cycle/)
 - [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
-
+    
+    
 ### Task 3: Stack (2 Days)
 - Implement a Stack [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task3_Stack/stack.py)
 - Simulate browser's forward and backward function ,using stack [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task3_Stack/browser.py)
@@ -59,7 +59,8 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 - [Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
 - [Evaluate Reverse Polish Notatio](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
-
+    
+    
 ### Task 4: Queue + Recursion (3 Days)
 - **Queue**
   - Implement a Queue [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task4_Queue_and_Recursion/queue.py)
@@ -73,7 +74,8 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
   - [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - **Recursion**
   - [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
-
+    
+    
 ### Task 5: Sorting (3 Days)
 - Implement Bubble Sort [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task5_Sorting/bubble_sort.py)
 - Implement Selection Sort [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task5_Sorting/selection_sort.py)
@@ -84,20 +86,23 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 #### Problem Sets 5:
 - (review)[Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - Find the k-th Largest Number with O(n) Complexity
-
+    
+    
 ### Task 6: Binary Search (2 Days)
 - Implement Binary Search on sorted list [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task6_Binary_Search/binary_search.py)
 - Implement a `fuzzy` Binary Search algorithm (Search the first item that is larger than or equal to the given item) [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_1/Task6_Binary_Search/fuzzy_binary_search.py)
 #### Problem Sets 6:
 - (review) [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [Sqrt(x)](https://leetcode.com/problems/sqrtx/)
-
+    
+    
 ### Task 7: Hasing (3 Days)
 - Implement a Hash table using LinkedList to solve hash collision [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task7_Hasing/hash_table.py)
 - Implement a LRU cache elimination algorithm [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task7_Hasing/LRU_cache_elimination.py)
 #### Problem Set 7:
 - [Two Sum](https://leetcode.com/problems/two-sum/)
-
+    
+    
 ### Task 8: String (2 Days)
 - Implement a Character Repertoire containing 26 english letters using `Trie` tree [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task8_String/trie.py)
 - Implement a simple string matching algorithm [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task8_String/match_string.py)
@@ -105,7 +110,8 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Reverse String](https://leetcode.com/problems/reverse-string/)
 - [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
 - [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
-
+    
+    
 ### Task 9: Binary Tree (2 Days)
 - Implement a Binary Tree, supporting *insert*, *delete* and *search* methods [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task9_Binary_Tree/binary_tree.py)
 - Find the successor/predecessor node of a node in a tree 
@@ -115,7 +121,8 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
 - [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 - [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
-
+    
+    
 ### Task 10: Heap (2 Days)
 - Implement a *Min Heap* or *Max Heap* or *Priority Queue*
 - Write a heap sort algorithm
@@ -123,3 +130,5 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
 - Find the top-k largest number in a collection of numbers
 #### Problem Sets 10:
 - [Path Sum](https://leetcode.com/problems/path-sum/)
+    
+    
