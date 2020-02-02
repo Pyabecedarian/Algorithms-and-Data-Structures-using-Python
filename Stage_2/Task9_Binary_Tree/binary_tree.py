@@ -32,7 +32,7 @@ class BinaryTree(object):
     def __repr__(self, i: int = 0):
         """Print BinaryTree in a structured way"""
         s = ''
-        s += '\t' * i + str(self.root) + '\n'
+        s += '   '*(i-1)*bool(i) + ':..'*bool(i) + str(self.root) + '\n'
         if self.left is not None:
             s += self.left.__repr__(i + 1)
         if self.right is not None:

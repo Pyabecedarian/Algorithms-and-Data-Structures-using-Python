@@ -1,6 +1,6 @@
 """
 We have now Array and LinkedList. It's enough to create a new type of container that can store
-any type of data and support indexing/assignment operations in O(1) time, like python list.
+any type of data and support indexing/assignment operations in O(1) time, like python built-in list.
 
 Idea:
     Use an Array to store all addresses of Node (for O(1) indexing/assignment)
@@ -131,7 +131,7 @@ class List(object):
             self.append(obj)
 
     def insert(self, idx, obj):
-        """Insert the object into list at idx"""
+        """Insert a object into the list at idx"""
         idx = get_index(idx, len(self))
 
         node_idx = deref(self._addrs[idx])

@@ -10,12 +10,6 @@ Build a parse tree to evaluate a fully parenthesised mathematical expression, ((
 from datastruct import BinaryTree, Stack, HashTable
 import operator
 
-op = HashTable(11)
-op['+'] = operator.add
-op['-'] = operator.sub
-op['*'] = operator.mul
-op['/'] = operator.truediv
-
 
 def build_parse_tree(fpexp):
     """
@@ -51,7 +45,12 @@ def build_parse_tree(fpexp):
 
 
 def evaluate(parseTree: BinaryTree):
-    global op
+    op = HashTable(11)
+    op['+'] = operator.add
+    op['-'] = operator.sub
+    op['*'] = operator.mul
+    op['/'] = operator.truediv
+
     if parseTree.left and parseTree.right:
         a = evaluate(parseTree.left)
         b = evaluate(parseTree.right)

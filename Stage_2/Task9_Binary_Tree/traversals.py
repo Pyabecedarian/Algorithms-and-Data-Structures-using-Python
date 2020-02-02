@@ -62,8 +62,9 @@ def printMathExp(btree: BinaryTree) -> str:
 if __name__ == '__main__':
     t = BinaryTree('a')
     t.insertLeft('b').insertRight('c')
-    t.left.insertLeft('d').insertRight('e')
-    t.left.right.insertLeft('f').insertRight('g')
+    t.left.insertLeft('d')
+    t.left.insertLeft('e').insertRight('f')
+    t.left.right.insertLeft('g').insertRight('h')
     print(t)  # print the tree structure
 
     # traversal and get the values in three orders
@@ -79,8 +80,8 @@ if __name__ == '__main__':
 
     print(postorder(t))
     print(preorder(t))
-    print(inorder(t))
+    print(inorder(t))  # we can recover the original expression back (without any parentheses)
+                       # using inorder traversal.
 
-    # we can recover the original expression back (without any parentheses) using inorder traversal .
-    # change the inorder function a bit to get the fully parentheses expression
+    # change the `inorder()` function a bit to get the fully parentheses expression
     print(printMathExp(t))

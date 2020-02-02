@@ -104,7 +104,7 @@ class HashTable(object):
         self.put(key, value)
 
     def _hash(self, key: int):
-        """Very simple hash function that only support int value"""
+        """Very simple hash function that only support int and str type"""
         hashvalue = 0
         if isinstance(key, int):
             hashvalue = key

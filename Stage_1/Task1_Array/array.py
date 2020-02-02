@@ -106,7 +106,7 @@ class Array(object):
         self._A[k] = v
 
     def _resize(self):
-        """If try to add more elements in array, it'll automatically resize"""
+        """If try to add more elements in array, it'll automatically resize (double the size)"""
         self._size, oldSize = 2 * self._size, self._size
         tmpA = _new_array(self._ctype, self._size)
         for i in range(self._n):
@@ -151,8 +151,8 @@ class Array(object):
 
 
 if __name__ == '__main__':
-    a = Array(None, 26, 'full')
+    a = Array(None, 5, 'full')
     print(a)
 
-    a = Array(None, 26)
+    a = Array(None, 5)
     print(a)
