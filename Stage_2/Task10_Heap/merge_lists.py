@@ -14,18 +14,20 @@ Analysis:
 from datastruct import BinaryHeap
 
 
-def mergeLists(*iterables, func=None):
+def mergeLists(*iterables, key=None):
     """
     Merge k sorted lists into a whole sorted list.
 
     :param iterables: any number of iterables, must be already sorted in ascending order.
+    :param key: a function that takes each element in iterables as argument and return a value which will
+                be used for priority comparison.
     :return: an generator of the result list.
     """
     k = len(iterables)
     its = list(map(iter, iterables))  # [ it0, it1, ... itk ]
 
     # build an heap of k size
-    hp = BinaryHeap(func=func)
+    hp = BinaryHeap(func=key)
     for i, it in enumerate(its):
         hp.heappush((next(it), i))
 

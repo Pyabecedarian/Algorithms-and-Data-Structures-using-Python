@@ -60,7 +60,11 @@ class BinaryHeap(object):
 
     @property
     def items(self):
-        return self.heapList[1:]
+        """An iterator containing all items in heap"""
+        i = 1
+        while i <= len(self):
+            yield self.heapList[i]
+            i += 1
 
     def heappush(self, value):
         """
@@ -104,7 +108,7 @@ class BinaryHeap(object):
         Steps:
             1. find the smaller child's position (2p or 2p+1);
             2. compare with the parent;
-            3. if parent > min(children), then swap, otherwise a proper position has reached
+            3. if parent > min(children) then swap, otherwise a proper position has reached
         """
         f = self.func
         while 2 * p < len(self.heapList):
@@ -138,6 +142,18 @@ class BinaryHeap(object):
             i -= 1
         return self
 
+    def heappushpop(self, value):
+        """A method performs push&pop combined, which is a little bit faster than
+        push() followed by pop() separately."""
+        f = self.func
+        if len(self) <= 0 or f(value) < f(self.heapList[1]):
+            return value
+        else:
+            res = self.heapList[1]
+            self.heapList[1] = value
+            self._percDown(1)
+            return res
+
 
 if __name__ == '__main__':
     bh = BinaryHeap()
@@ -154,5 +170,4 @@ if __name__ == '__main__':
 
     print(bh.items)
 
-    for i in range(len(bh)):
-        print(bh.heappop())
+    print(bh.heappushpop(('12', 12)))
