@@ -124,10 +124,10 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
     
     
 ### Task 10: Heap (2 Days)
-- Implement a *Min Heap* or *Max Heap* or *Priority Queue*
+- Implement a *Min Heap* or *Max Heap* or *Priority Queue* [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task10_Heap/priority_queue.py)
 - Write a heap sort algorithm
-- Merge k sorted list using priority queue
-- Find the top-k largest number in a collection of numbers
+- Merge k sorted list using priority queue [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task10_Heap/merge_lists.py)
+- Find the top-k largest number in a collection of numbers [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task10_Heap/topK_largest.py)
 #### Problem Sets 10:
 - [Path Sum](https://leetcode.com/problems/path-sum/)
     
