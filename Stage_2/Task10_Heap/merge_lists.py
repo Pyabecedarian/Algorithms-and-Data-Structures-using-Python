@@ -14,7 +14,7 @@ Analysis:
 from datastruct import BinaryHeap
 
 
-def mergeLists(*iterables, key=None):
+def merge(*iterables, key=None):
     """
     Merge k sorted lists into a whole sorted list.
 
@@ -50,5 +50,5 @@ if __name__ == '__main__':
     c = [1, 7, 12]
     d = [6]
 
-    res = list(mergeLists(a, b, c, d))
+    res = list(merge(a, b, c, d))
     print(res)

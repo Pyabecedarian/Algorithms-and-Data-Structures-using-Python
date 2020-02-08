@@ -29,7 +29,7 @@ def build_parse_tree(fpexp):
             currTree = currTree.left
 
         elif c in '+-*/':  # c is an operator, change root value and descent to right subtree
-            currTree.root = c
+            currTree.key = c
             currTree.insertRight(None)
             pStack.push(currTree)
             currTree = currTree.right
@@ -38,7 +38,7 @@ def build_parse_tree(fpexp):
             currTree = pStack.pop()
 
         else:  # an operand, change root value and back to parent node
-            currTree.root = int(c)
+            currTree.key = int(c)
             currTree = pStack.pop()
 
     return tree
@@ -54,10 +54,10 @@ def evaluate(parseTree: BinaryTree):
     if parseTree.left and parseTree.right:
         a = evaluate(parseTree.left)
         b = evaluate(parseTree.right)
-        fn = op[parseTree.root]
+        fn = op[parseTree.key]
         return fn(a, b)
     else:
-        return parseTree.root
+        return parseTree.key
 
 
 if __name__ == '__main__':

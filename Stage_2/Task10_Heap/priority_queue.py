@@ -168,6 +168,5 @@ if __name__ == '__main__':
     bh.heappush((False, -2))
     bh.heappush(('bad',  1))
 
-    print(bh.items)
-
     print(bh.heappushpop(('12', 12)))
+    print(list(bh.items))

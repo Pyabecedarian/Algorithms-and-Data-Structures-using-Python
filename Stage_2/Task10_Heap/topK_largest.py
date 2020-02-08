@@ -30,4 +30,5 @@ def nlargest(n, iterable, key=None):
 
 if __name__ == '__main__':
     a = [0, 12, 8, 11, 4, 2, 1, 0, -1, 3, 6, 9, 13, 22, 9]
-    print(list(nlargest(6, a)))
+    print(list(nlargest(4, a)))
+    print(list(nlargest(100, a)))

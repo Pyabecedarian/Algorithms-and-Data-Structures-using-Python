@@ -25,14 +25,14 @@ Predecessor (see ./parse_tree.py):
 
 class BinaryTree(object):
     def __init__(self, rootobj=None):
-        self.root = rootobj
+        self.key = rootobj
         self.left = None
         self.right = None
 
     def __repr__(self, i: int = 0):
         """Print BinaryTree in a structured way"""
         s = ''
-        s += '   '*(i-1)*bool(i) + ':..'*bool(i) + str(self.root) + '\n'
+        s += '   ' * (i-1) * bool(i) + ':..' * bool(i) + str(self.key) + '\n'
         if self.left is not None:
             s += self.left.__repr__(i + 1)
         if self.right is not None:

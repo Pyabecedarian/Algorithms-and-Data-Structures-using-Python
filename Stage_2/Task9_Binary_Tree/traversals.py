@@ -9,7 +9,7 @@ def preorder(btree: BinaryTree) -> List:
     Return a List of values in predorder
     """
     newList = List()
-    newList.append(btree.root)
+    newList.append(btree.key)
     if btree.left:
         newList.extend(preorder(btree.left))
     if btree.right:
@@ -26,7 +26,7 @@ def postorder(btree: BinaryTree) -> List:
     if btree is not None:
         newList.extend(postorder(btree.left))
         newList.extend(postorder(btree.right))
-        newList.append(btree.root)
+        newList.append(btree.key)
 
     return newList
 
@@ -38,7 +38,7 @@ def inorder(btree: BinaryTree) -> List:
     newList = List()
     if btree is not None:
         newList.extend(inorder(btree.left))
-        newList.append(btree.root)
+        newList.append(btree.key)
         newList.extend(inorder(btree.right))
 
     return newList
@@ -51,7 +51,7 @@ def printMathExp(btree: BinaryTree) -> str:
         if btree.left is not None:
             s += '('
         s += printMathExp(btree.left)
-        s += str(btree.root)
+        s += str(btree.key)
         s += printMathExp(btree.right)
         if btree.right is not None:
             s += ')'
@@ -68,9 +68,9 @@ if __name__ == '__main__':
     print(t)  # print the tree structure
 
     # traversal and get the values in three orders
-    print(preorder(t))
-    print(postorder(t))
-    print(inorder(t))
+    print(preorder(t), '\tpreorder')
+    print(postorder(t), '\tpostorder')
+    print(inorder(t), '\tinorder')
 
     # try to print a parse_tree in `./parse_tree.py`
     from Stage_2.Task9_Binary_Tree.parse_tree import build_parse_tree
@@ -78,10 +78,10 @@ if __name__ == '__main__':
     t = build_parse_tree('( ( 10 + 5 ) * 3 )')
     print(t)  # print the tree structure
 
-    print(postorder(t))
-    print(preorder(t))
-    print(inorder(t))  # we can recover the original expression back (without any parentheses)
-                       # using inorder traversal.
+    print(preorder(t), '\tpreorder')
+    print(postorder(t), '\tpostorder')
+    print(inorder(t), '\tinorder')  # we can recover the original expression back (without any parentheses)
+                                    # using inorder traversal.
 
     # change the `inorder()` function a bit to get the fully parentheses expression
     print(printMathExp(t))
