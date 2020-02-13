@@ -83,7 +83,7 @@ class BSTNode(object):
         return self.left and self.right
 
 
-class Map(object):
+class BSTMap(object):
     def __init__(self, func=None):
         self.root = None
         self.size = 0
@@ -267,8 +267,8 @@ class Map(object):
 
 
 if __name__ == '__main__':
-    d = Map()
-    keys = [17, 5, 35, 2, 11, 29, 38]
+    d = BSTMap()
+    keys = [17, 5, 35, 2, 11, 29, 38, 26, 7, 8]
     for key in keys:
         value = str(key)
         d.put(key, value)
