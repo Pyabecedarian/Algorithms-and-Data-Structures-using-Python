@@ -25,42 +25,42 @@ AVL Tree
                                        1    9      30  <-- 0   0     0
 
 Balanced Factor
-  update through put():
-    Since all new keys are inserted into the tree as leaf node, it's easy to see that balanced factor for a leaf
-    is zero. Once a leaf node is added, all the parent node's bf has changed:
-        > if the new key is left child, bf of the parent increases by 1;
-        > if the new key is right child, bf of the parent decreased by 1;
-        > all the bfs' update will recursively affect to every ancestor all the way up to the root of the tree;
-        > *NOTE*: Once a bf of parent has been adjusted to zero, means the subtree is balanced, then the recursive
-        update of bf should stop.
-        > if the bf of one node is out of range [-1, 1], then the tree is unbalanced, we need to rebalance the tree
+    update through put(), see `update_balance_factor_v1`:
+        Since all new keys are inserted into the tree as leaf node, it's easy to see that balanced factor for a leaf
+        is zero. Once a leaf node is added, all the parent node's bf has changed:
+            > if the new key is left child, bf of the parent increases by 1;
+            > if the new key is right child, bf of the parent decreased by 1;
+            > all the bfs' update will recursively affect to every ancestor all the way up to the root of the tree;
+            > *NOTE*: Once a bf of parent has been adjusted to zero, means the subtree is balanced, then the recursive
+            update of bf should stop.
+            > if the bf of one node is out of range [-1, 1], then the tree is unbalanced, we need to rebalance the tree
 
-  update through delete():
-    We already know that there are three cases to delete a node in the tree:
-        > if the node to be deleted is a leaf node;
-        > if the node to be deleted has only on child node;
-        > if the node to be deleted has both two children.
+    update through delete(), see `update_balance_factor_v2`:
+        We already know that there are three cases to delete a node in the tree:
+            > if the node to be deleted is a leaf node;
+            > if the node to be deleted has only on child node;
+            > if the node to be deleted has both two children.
 
-        Fot the first case, node is a leaf:
-            > if the node is a left child of its parent, the bf of parent decreases by 1;
-            > if the node is a right child, the bf of a parent increases by 1;
-            > after the change of the bf, if it is not zero, which means the parent node has no
-              child any more, we should recursively update the bf of the parent of parent node.
+            Fot the first case, node is a leaf:
+                > if the node is a left child of its parent, the bf of parent decreases by 1;
+                > if the node is a right child, the bf of a parent increases by 1;
+                > after the change of the bf, if it is not zero, which means the parent node has no
+                  child any more, we should recursively update the bf of the parent of parent node.
 
-        Fot the second case, node has only one child:
-            > all the children's bf under the node is unchanged;
-            > the height of the subtree in which the node located will decrease by 1;
-            > therefore the bf of the parent node is changed by increasing/decreasing 1 if the node itself is
-              a right/left child of its parent;
-            > if the bf of parent is changed to zero, which means that the height of the subtree in which the parent
-              node located decreases 1, therefore we need to recursively invoke the update procedure to the
-              parent of the parent node.
+            Fot the second case, node has only one child:
+                > all the children's bf under the node is unchanged;
+                > the height of the subtree in which the node located will decrease by 1;
+                > therefore the bf of the parent node is changed by increasing/decreasing 1 if the node itself is
+                  a right/left child of its parent;
+                > if the bf of parent is changed to zero, which means that the height of the subtree in which the parent
+                  node located decreases 1, therefore we need to recursively invoke the update procedure to the
+                  parent of the parent node.
 
-        For the third case, node has two children:
-            > find the successor in the right subtree of the key node, which is either a leaf node or node with
-              only one child;
-            > recursively update the bfs started with successor;
-            > do the same delete operations in delete() function in BSTMap.
+            For the third case, node has two children:
+                > find the successor in the right subtree of the key node, which is either a leaf node or node with
+                  only one child;
+                > recursively update the bfs started with successor;
+                > do the same delete operations in delete() function in BSTMap.
 
 
 Re-balance the tree
@@ -165,7 +165,7 @@ class AVLMap(BSTMap):
                     s += '\t' + gap + ':-\n'
         return s
 
-    def update_balance_factor(self, node: AVLNode, ):
+    def update_balance_factor_v1(self, node: AVLNode, *args):
         """Update the node's balance factor recursively up to the root or stop until a subtree is balanced.
         If a node's balance factor is out of the range [-1, 1], invoke rebalance() for rearrangement to a
         balanced bst"""
@@ -179,9 +179,9 @@ class AVLMap(BSTMap):
                 node.parent.bf -= 1
 
             if node.parent.bf != 0:
-                self.update_balance_factor(node.parent)
+                self.update_balance_factor_v1(node.parent)
 
-    def update_balance_factor_v2(self, node: AVLNode):
+    def update_balance_factor_v2(self, node: AVLNode, *args):
         """
         A revised version of update_balance_factor() for the delete() function of the AVL Tree.
         Once a key is deleted, the bf of its parent and all the ancestor nodes' bf will be changed:
@@ -189,7 +189,6 @@ class AVLMap(BSTMap):
             > if the node is a right child, the bf of its parent must increase by 1;
             > recursively update the bf to the root node of the tree.
         """
-
         if node.bf > 1 or node.bf < -1:
             return self.re_balance(node)
 
@@ -200,7 +199,7 @@ class AVLMap(BSTMap):
                 node.parent.bf += 1
 
             if node.parent.bf == 0:
-                self.update_balance_factor(node.parent)
+                self.update_balance_factor_v2(node.parent)
 
     def re_balance(self, pivot_node: AVLNode):
         """
@@ -217,7 +216,7 @@ class AVLMap(BSTMap):
         # right heavy, the subtree at pivot_node needs a left rotation
         elif pivot_node.is_right_heavy():
             # first check its right child, if right child is left heavy, then right rotation at right child first
-            if pivot_node.has_right() and pivot_node.right.is_left_heavy():
+            if pivot_node.right.is_left_heavy():
                 self.right_rotate(pivot_node.right)
             self.left_rotate(pivot_node)
 
@@ -283,7 +282,7 @@ class AVLMap(BSTMap):
                 node.left = AVLNode(key, value, parent=node)
                 self.size += 1
                 # the only difference with bst version is update_balance_factor()
-                self.update_balance_factor(node.left)
+                self.update_balance_factor_v1(node.left)
 
         elif f(key) > f(node.key):
             if node.has_right():
@@ -292,7 +291,7 @@ class AVLMap(BSTMap):
                 node.right = AVLNode(key, value, parent=node)
                 self.size += 1
                 # the only difference with bst version is update_balance_factor()
-                self.update_balance_factor(node.right)
+                self.update_balance_factor_v1(node.right)
         else:
             node.value = value
 
@@ -387,5 +386,5 @@ if __name__ == '__main__':
         d[key] = str(key)
     print(d)
 
-    del d[19]
+    del d[10]
     print(d)
