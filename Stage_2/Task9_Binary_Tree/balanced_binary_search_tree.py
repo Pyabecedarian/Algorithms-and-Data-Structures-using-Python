@@ -25,6 +25,7 @@ AVL Tree
                                        1    9      30  <-- 0   0     0
 
 Balanced Factor
+  update through put():
     Since all new keys are inserted into the tree as leaf node, it's easy to see that balanced factor for a leaf
     is zero. Once a leaf node is added, all the parent node's bf has changed:
         > if the new key is left child, bf of the parent increases by 1;
@@ -33,6 +34,33 @@ Balanced Factor
         > *NOTE*: Once a bf of parent has been adjusted to zero, means the subtree is balanced, then the recursive
         update of bf should stop.
         > if the bf of one node is out of range [-1, 1], then the tree is unbalanced, we need to rebalance the tree
+
+  update through delete():
+    We already know that there are three cases to delete a node in the tree:
+        > if the node to be deleted is a leaf node;
+        > if the node to be deleted has only on child node;
+        > if the node to be deleted has both two children.
+
+        Fot the first case, node is a leaf:
+            > if the node is a left child of its parent, the bf of parent decreases by 1;
+            > if the node is a right child, the bf of a parent increases by 1;
+            > after the change of the bf, if it is not zero, which means the parent node has no
+              child any more, we should recursively update the bf of the parent of parent node.
+
+        Fot the second case, node has only one child:
+            > all the children's bf under the node is unchanged;
+            > the height of the subtree in which the node located will decrease by 1;
+            > therefore the bf of the parent node is changed by increasing/decreasing 1 if the node itself is
+              a right/left child of its parent;
+            > if the bf of parent is changed to zero, which means that the height of the subtree in which the parent
+              node located decreases 1, therefore we need to recursively invoke the update procedure to the
+              parent of the parent node.
+
+        For the third case, node has two children:
+            > find the successor in the right subtree of the key node, which is either a leaf node or node with
+              only one child;
+            > recursively update the bfs started with successor;
+            > do the same delete operations in delete() function in BSTMap.
 
 
 Re-balance the tree
@@ -119,7 +147,7 @@ class AVLNode(BSTNode):
 class AVLMap(BSTMap):
     """AVL Tree inherit from normal bst"""
 
-    def __repr__(self, node: BSTNode = None, i=0):
+    def __repr__(self, node: AVLNode = None, i=0):
         node = node if node is not None else self.root
         s = ''
         if node is not None:
@@ -137,7 +165,7 @@ class AVLMap(BSTMap):
                     s += '\t' + gap + ':-\n'
         return s
 
-    def update_balance_factor(self, node: AVLNode):
+    def update_balance_factor(self, node: AVLNode, ):
         """Update the node's balance factor recursively up to the root or stop until a subtree is balanced.
         If a node's balance factor is out of the range [-1, 1], invoke rebalance() for rearrangement to a
         balanced bst"""
@@ -153,6 +181,27 @@ class AVLMap(BSTMap):
             if node.parent.bf != 0:
                 self.update_balance_factor(node.parent)
 
+    def update_balance_factor_v2(self, node: AVLNode):
+        """
+        A revised version of update_balance_factor() for the delete() function of the AVL Tree.
+        Once a key is deleted, the bf of its parent and all the ancestor nodes' bf will be changed:
+            > if the node to be deleted is a left child of its parent, the bf of its parent must decrease by 1;
+            > if the node is a right child, the bf of its parent must increase by 1;
+            > recursively update the bf to the root node of the tree.
+        """
+
+        if node.bf > 1 or node.bf < -1:
+            return self.re_balance(node)
+
+        if node.parent:
+            if node.is_left_child():
+                node.parent.bf -= 1
+            elif node.is_right_child():
+                node.parent.bf += 1
+
+            if node.parent.bf == 0:
+                self.update_balance_factor(node.parent)
+
     def re_balance(self, pivot_node: AVLNode):
         """
         Re-balance the subtree at its root, pivot_node using the strategy described above at
@@ -162,7 +211,7 @@ class AVLMap(BSTMap):
         if pivot_node.is_left_heavy():
             # first check its left child, if left child is right heavy, then left rotate at left child first
             if pivot_node.left.is_right_heavy():
-                self.right_rotate(pivot_node.left)
+                self.left_rotate(pivot_node.left)
             self.right_rotate(pivot_node)
 
         # right heavy, the subtree at pivot_node needs a left rotation
@@ -255,6 +304,66 @@ class AVLMap(BSTMap):
             self.root = AVLNode(key, value)
             self.size += 1
 
+    def delete(self, key):
+        f = self.func
+        node = self._get(key, self.root)
+        if node:
+            # 1. The node is a leaf
+            if node.is_leaf():
+                if node is not self.root:  # make sure the node isn't the root of the tree
+
+                    # update the balance factor first
+                    self.update_balance_factor_v2(node)
+
+                    if node.is_left_child():
+                        node.parent.left = None
+                    else:
+                        node.parent.right = None
+                else:
+                    self.root = None
+
+            # 2. The node has only one child
+            elif node.any_child():
+                child = node.any_child()
+                child.parent = node.parent
+                if node is not self.root:
+
+                    # update the balance factor first
+                    self.update_balance_factor_v2(node)
+
+                    if child.is_left_child():
+                        node.parent.left = child
+                    else:
+                        node.parent.right = child
+                else:
+                    self.root = child
+
+            # 3. The node has two children
+            elif node.has_both_children():
+                successor = self.findMin(node.right)
+                node.replace(successor.key, successor.value)
+
+                # update the balance factor first
+                self.update_balance_factor_v2(successor)
+
+                if successor.is_leaf():
+                    if successor.is_left_child():
+                        successor.parent.left = None
+                    else:
+                        successor.parent.right = None
+
+                elif successor.has_right():
+                    if successor.is_left_child():
+                        successor.parent.left = successor.right
+                        successor.right.parent = successor.parent
+                    else:
+                        successor.parent.right = successor.right
+                        successor.right.parent = successor.parent
+
+        else:
+            # the key not found, raise KeyError
+            raise KeyError(f'{key}')
+
 
 if __name__ == '__main__':
     d = AVLMap()
@@ -274,6 +383,9 @@ if __name__ == '__main__':
     # test again, will trigger the left rotation
     print()
     d = AVLMap()
-    for key in [10, 5, 12, 14, 13]:
+    for key in [10, 5, 12, 3, 6, 14, 32, 19, 21, 15, 31]:
         d[key] = str(key)
+    print(d)
+
+    del d[19]
     print(d)

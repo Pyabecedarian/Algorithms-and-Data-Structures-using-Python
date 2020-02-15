@@ -201,7 +201,9 @@ class BSTMap(object):
             raise KeyError(f'{key}')
 
     def findMin(self, node: BSTNode):
-        """Find the result node which contains the smallest key in the subtree started with input node"""
+        """Find the result node which contains the smallest key in the subtree started with input node.
+        The recursive invocation makes sure that the minimum node is the left most child in the right subtree,
+        it would be a leaf or a node only has a right child."""
         min_node = node
         if node.has_left():
             min_node = self.findMin(node.left)
