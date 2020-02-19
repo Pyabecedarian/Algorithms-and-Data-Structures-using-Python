@@ -8,7 +8,7 @@ Possible operations are:
     > dequeue():
     > isEmpty():
 """
-from datastruct import LinkedList
+from datastruct.collections import LinkedList
 
 
 class Queue(object):
@@ -49,3 +49,10 @@ if __name__ == '__main__':
     q.dequeue()
     print(q)
     print(len(q))
+
+    q.dequeue()
+    q.dequeue()
+    print(q)
+
+    q.enqueue('add')
+    print(q)

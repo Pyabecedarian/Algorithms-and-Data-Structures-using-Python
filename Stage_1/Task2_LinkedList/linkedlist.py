@@ -25,6 +25,9 @@ class Node(object):
         self.data = initdata
         self.next = _next_
 
+    def __repr__(self):
+        return str(self.data)
+
 
 class LinkedList(object):
     def __init__(self, iterable=[]):
@@ -130,7 +133,7 @@ class LinkedList(object):
                 try:
                     self.append(next(it))
                 except StopIteration:
-                    break
+                    return
         else:
             self.tail.next = iterable.head.next
             self.tail = iterable.tail
@@ -146,9 +149,18 @@ class LinkedList(object):
             p = p.next
             idx -= 1
 
-        res = p.next.data
-        p.next = p.next.next
-        self._size -= 1
+        # be careful that pop from an empty Linkedlist
+        if p.next is not None:
+            res = p.next.data
+
+            # be careful when pop the last element we must change the self.tail
+            if p.next is self.tail:
+                self.tail = p
+
+            p.next = p.next.next
+            self._size -= 1
+        else:
+            res = None
 
         return res
 
@@ -173,3 +185,15 @@ class LinkedList(object):
             p.next = p.next.next
             self._size -= 1
             return True
+
+
+if __name__ == '__main__':
+    l = LinkedList([3,1,2])
+    print(l)
+
+    l.pop()
+    l.pop()
+    l.pop()
+    print(l)
+    l.append(3)
+    print(l)

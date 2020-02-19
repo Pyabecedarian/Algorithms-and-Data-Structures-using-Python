@@ -1,7 +1,7 @@
 """
 Simulate a browser, write an algorithm to simulate `forward` and `backward` functions
 """
-from datastruct import Stack
+from datastruct.abstract import Stack
 
 
 class Browser(object):

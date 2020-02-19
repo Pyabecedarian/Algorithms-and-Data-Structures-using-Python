@@ -2,7 +2,7 @@
 ★ Task: Write an algorithm that can find whether a word is present in a sentence. ★
 """
 import string
-from datastruct import Trie
+from datastruct.tree import Trie
 
 
 def math_word(word: str, sentence: str) -> bool:

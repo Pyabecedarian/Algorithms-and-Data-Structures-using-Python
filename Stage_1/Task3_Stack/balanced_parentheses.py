@@ -12,7 +12,7 @@ the corresponding closing symbol `), ] or }`.
     Balanced        { { ( [ ] [ ] ) } ( ) }
     Not balanced    ( ( ( ) ] ) )
 """
-from datastruct import Stack
+from datastruct.abstract import Stack
 
 
 def simple_parChecker(symbolStr: str) -> bool:

@@ -129,7 +129,7 @@ Special Case of Rotation
                                B (1)  ---->      C (-1)   ---->   A     B
                             C (0)                   B (0)
 """
-from datastruct import BSTNode, BSTMap
+from datastruct.tree import BSTNode, BSTMap
 
 
 class AVLNode(BSTNode):

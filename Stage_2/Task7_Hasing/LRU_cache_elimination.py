@@ -51,7 +51,7 @@ Idea:
     So we can keep the node in a hash table, and record the recently used keys on the top of the stack,
     while evict the out dated item on the bottom.
 """
-from datastruct import DNode, HashTable
+from datastruct.collections import DNode, HashTable
 
 
 class LRUCache(object):

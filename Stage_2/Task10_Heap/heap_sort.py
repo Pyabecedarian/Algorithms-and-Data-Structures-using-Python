@@ -1,7 +1,8 @@
 """
 Write a Heap Sort Algorithm
 """
-from datastruct import BinaryHeap, List
+from datastruct.collections import List
+from datastruct.abstract import BinaryHeap
 
 
 def heap_sort(alist: list) -> list:

@@ -1,7 +1,8 @@
 """
 Implement `preorder`, `inorder` and `postorder` traversal.
 """
-from datastruct import BinaryTree, List
+from datastruct.collections import List
+from datastruct.tree import BinaryTree
 
 
 def preorder(btree: BinaryTree) -> List:

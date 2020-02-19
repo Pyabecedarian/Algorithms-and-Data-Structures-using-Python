@@ -4,7 +4,7 @@
 Idea:
     Kind of the merge procedure in `merge sort`.
 """
-from datastruct import Array
+from datastruct.collections import Array
 
 
 def merge(arr1: Array, arr2: Array) -> Array:

@@ -1,7 +1,7 @@
 """
 ★ Task: To merge two ordered linkedlist into a ordered one. ★
 """
-from datastruct import LinkedList
+from datastruct.collections import LinkedList
 
 
 def merge_linkedlists(alist: LinkedList, blist: LinkedList) -> LinkedList:
@@ -33,7 +33,7 @@ def merge_linkedlists(alist: LinkedList, blist: LinkedList) -> LinkedList:
 
 
 if __name__ == '__main__':
-    a = LinkedList([6,3,1])
+    a = LinkedList([6, 3, 1])
     b = LinkedList([10, 9, 2, 0, -2])
 
     c = merge_linkedlists(a, b)

@@ -6,8 +6,8 @@ Idea:
     Use an Array to store all addresses of Node (for O(1) indexing/assignment)
     Use an LinkedList to store all data (for supporting any type)
 """
-from datastruct import Array
 import ctypes as c
+from datastruct.collections import Array
 
 
 def deref(id):
@@ -27,7 +27,7 @@ def get_index(idx, size):
 
 
 class DNode(object):
-    """List is a doubly linked structure"""
+    """List is a doubly linked structure. This is the primitive unit to construct a List"""
 
     def __init__(self, initdata=None, _prev_=None, _next_=None):
         self.data = initdata

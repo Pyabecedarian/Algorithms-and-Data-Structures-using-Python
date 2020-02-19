@@ -7,7 +7,9 @@ Build a parse tree to evaluate a fully parenthesised mathematical expression, ((
                                        /  \   /  \
                                       7   3  5    2
 """
-from datastruct import BinaryTree, Stack, HashTable
+from datastruct.collections import HashTable
+from datastruct.abstract import Stack
+from datastruct.tree import BinaryTree
 import operator
 
 

@@ -1,7 +1,7 @@
 """
 
 """
-from datastruct import Queue
+from datastruct.abstract import Queue
 
 
 def hot_potato(namelist: list, num: int) -> str:

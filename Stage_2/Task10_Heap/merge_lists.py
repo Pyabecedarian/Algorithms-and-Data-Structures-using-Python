@@ -11,7 +11,7 @@ Analysis:
         2. Pop the top and push the next element from which list the pop operation has just performed;
         3. Repeat the steps until all element in k lists are consumed.
 """
-from datastruct import BinaryHeap
+from datastruct.abstract import BinaryHeap
 
 
 def merge(*iterables, key=None):

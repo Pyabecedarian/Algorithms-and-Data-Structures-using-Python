@@ -75,6 +75,10 @@ class Array(object):
     def __len__(self):
         return self._n
 
+    @property
+    def type(self):
+        return self._pytype
+
     def __repr__(self):
         s = '[' + ', '.join([str(self._A[i]) for i in range(self._n)]) + ']'
         return f'Array({self._tname}, {s})'

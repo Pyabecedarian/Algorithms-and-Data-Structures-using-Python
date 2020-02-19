@@ -5,7 +5,7 @@ Idea:
     Build a heap of size k, iterate all the rest numbers in the input list, push to and pop from the heap.
     When the iteration has done, the k numbers in heap must be the top-K largest.
 """
-from datastruct import BinaryHeap
+from datastruct.abstract import BinaryHeap
 
 
 def nlargest(n, iterable, key=None):

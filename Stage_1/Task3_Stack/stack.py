@@ -13,7 +13,7 @@ Some possible methods of stack are:
     > peek()    : returns the top item from the stack, but does not remove it
     > isEmpty() : tests to see whether the stack is empty.
 """
-from datastruct import LinkedList
+from datastruct.collections import LinkedList
 
 
 class Stack(object):

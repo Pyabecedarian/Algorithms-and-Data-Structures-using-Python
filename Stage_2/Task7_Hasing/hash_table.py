@@ -61,7 +61,7 @@ Some possible operations are as follows:
 Here we use `List` as container in order to understand basic data structures better. But also can use built-in
 python list alternatively.
 """
-from datastruct import List
+from datastruct.collections import List
 
 
 class HashTable(object):

@@ -1,7 +1,7 @@
 """
 ★ Task: To reverse a linkedlist ★
 """
-from datastruct import LinkedList
+from datastruct.collections import LinkedList
 
 
 def reverse_linkedlist(alist: LinkedList) -> LinkedList:

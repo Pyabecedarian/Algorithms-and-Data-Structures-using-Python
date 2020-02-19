@@ -41,7 +41,7 @@ Possible methods of a Binary Heap:
     > dequeue()      :  returns the item with the minimum value, removing the item from the heap
     > buildHeap(list):  builds a new heap from a list of values
 """
-from datastruct import List
+from datastruct.collections import List
 
 
 # Min Heap

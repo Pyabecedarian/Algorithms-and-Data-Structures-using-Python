@@ -1,5 +1,11 @@
 """
 Graph
+    is a set of vertices that connects by edges which may have costs (weights) from one vertex to another.
+
+                                    w0               w1
+                            V0  ---------->  V1  ---------> V2 --- ... -
+                             |         w2                    ↑
+                             ---------------------------------
 
 
 Important Definitions
@@ -93,7 +99,7 @@ class Graph(object):
         return key in self.vertices_list
 
     def get_vertex(self, key):
-        """Return the vertex object by key, or None if key not in vertices list."""
+        """Return the vertex object by key, or None if the key is not in vertices list."""
         return self.vertices_list.get(key)
 
     def add_vertex_by_key(self, vert_key):
