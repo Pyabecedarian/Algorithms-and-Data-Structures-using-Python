@@ -58,7 +58,6 @@ class BinaryHeap(object):
     def __len__(self):
         return len(self.heapList) - 1
 
-    @property
     def items(self):
         """An iterator containing all items in heap"""
         i = 1
@@ -169,4 +168,4 @@ if __name__ == '__main__':
     bh.heappush(('bad',  1))
 
     print(bh.heappushpop(('12', 12)))
-    print(list(bh.items))
+    print(list(bh.items()))

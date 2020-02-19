@@ -67,31 +67,56 @@ from datastruct import List
 class HashTable(object):
     def __init__(self, size=11):
         self._size = size  # default size
-        self.keys = List([None] * size)
-        self.values = List([None] * size)
-        self._k = 0  # for iteration
+        self.slots = List([None] * size)
+        self.payloads = List([None] * size)
+        self._k = 0
 
     def __repr__(self):
         s = ''
-        for ks, vs in zip(self.keys, self.values):
+        for ks, vs in zip(self.slots, self.payloads):
             if ks:
                 for k, v in zip(ks, vs):
                     kv_pair = f'{str(k)}: {str(v)}, '
                     s += kv_pair
         return f"HashTable([ {s[:-2]} ])"
 
+    def __len__(self):
+        return self._k
+
+    def __iter__(self):
+        return self.keys()
+
+    def keys(self):
+        for slot_keys in self.slots:
+            if slot_keys is not None:
+                for key in slot_keys:
+                    yield key
+
+    def values(self):
+        for payload in self.payloads:
+            if payload is not None:
+                for value in payload:
+                    yield value
+
+    def items(self):
+        for slot_keys, payload in zip(self.slots, self.payloads):
+            if slot_keys is not None:
+                for key, value in zip(slot_keys, payload):
+                    yield key, value
+
     def __delitem__(self, key):
         hash_value = self._hash(key)
-        if not self.keys[hash_value]:
+        if not self.slots[hash_value]:
             raise KeyError(f'{key}')
         else:
             try:
-                i = self.keys[hash_value].index(key)
+                i = self.slots[hash_value].index(key)
             except ValueError:
                 raise KeyError(f'{key}')
             else:
-                self.keys[hash_value].pop(i)
-                self.values[hash_value].pop(i)
+                self.slots[hash_value].pop(i)
+                self.payloads[hash_value].pop(i)
+                self._k -= 1
 
     def __getitem__(self, key):
         v = self.get(key)
@@ -103,14 +128,14 @@ class HashTable(object):
     def __setitem__(self, key, value):
         self.put(key, value)
 
-    def _hash(self, key: int):
-        """Very simple hash function that only support int and str type"""
+    def _hash(self, key):
+        """Very simple hash function that only support int and str type."""
         hashvalue = 0
         if isinstance(key, int):
             hashvalue = key
         elif isinstance(key, str):
             for i, c in enumerate(key):
-                hashvalue += (i+1) * ord(c)
+                hashvalue += (i + 1) * ord(c)
 
         hashvalue = hashvalue % self._size
         return hashvalue
@@ -118,41 +143,49 @@ class HashTable(object):
     def put(self, key, value):
         hash_value = self._hash(key)
 
-        if not self.keys[hash_value]:
+        self._k += 1
+        if self.slots[hash_value] is None:
             # the slot is empty, key does not exists
-            self.keys[hash_value] = List([key])
-            self.values[hash_value] = List([value])
+            self.slots[hash_value] = List([key])
+            self.payloads[hash_value] = List([value])
         else:
             # Hash Collision, search the key in the list
             try:
-                i = self.keys[hash_value].index(key)
+                i = self.slots[hash_value].index(key)
             except ValueError:
                 # key is not in List, append new key and value
-                self.keys[hash_value].append(key)
-                self.values[hash_value].append(value)
+                self.slots[hash_value].append(key)
+                self.payloads[hash_value].append(value)
             else:
                 # key is already in list, change value
-                self.values[hash_value][i] = value
+                self.payloads[hash_value][i] = value
+                self._k -= 1
 
     def get(self, key, default=None):
         hash_value = self._hash(key)
 
-        if not self.keys[hash_value]:
+        if not self.slots[hash_value]:
             return default
         else:
             try:
-                i = self.keys[hash_value].index(key)
+                i = self.slots[hash_value].index(key)
             except ValueError:
                 return default
             else:
-                return self.values[hash_value][i]
+                return self.payloads[hash_value][i]
 
 
 if __name__ == '__main__':
     t = HashTable(53)
     t['a'] = 0
-    t[97] = 'a'
+    t['a'] = 123
+    t[97] = 2
 
-    print(t['a'])
+    print(len(t))
 
+    print(list(t.keys()))
+    print(list(t.values()))
+    print(list(t.items()))
 
+    del t['a']
+    print(len(t))
