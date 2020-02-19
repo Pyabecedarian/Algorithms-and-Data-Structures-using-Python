@@ -1,5 +1,11 @@
 """
 Implement `preorder`, `inorder` and `postorder` traversal.
+
+        a                    preorder               inorder             postorder
+    b       c             a,b,d,e,c,f,g          d,b,e,a,f,c,g        d,e,b,f,g,c,a
+  d   e   f   g
+
+
 """
 from datastruct.collections import List
 from datastruct.tree import BinaryTree
@@ -63,15 +69,14 @@ def printMathExp(btree: BinaryTree) -> str:
 if __name__ == '__main__':
     t = BinaryTree('a')
     t.insertLeft('b').insertRight('c')
-    t.left.insertLeft('d')
-    t.left.insertLeft('e').insertRight('f')
-    t.left.right.insertLeft('g').insertRight('h')
+    t.left.insertLeft('d').insertRight('e')
+    t.right.insertLeft('f').insertRight('g')
     print(t)  # print the tree structure
 
     # traversal and get the values in three orders
     print(preorder(t), '\tpreorder')
-    print(postorder(t), '\tpostorder')
     print(inorder(t), '\tinorder')
+    print(postorder(t), '\tpostorder')
 
     # try to print a parse_tree in `./parse_tree.py`
     from Stage_2.Task9_Binary_Tree.parse_tree import build_parse_tree
@@ -81,6 +86,7 @@ if __name__ == '__main__':
 
     print(preorder(t), '\tpreorder')
     print(postorder(t), '\tpostorder')
+
     print(inorder(t), '\tinorder')  # we can recover the original expression back (without any parentheses)
                                     # using inorder traversal.
 

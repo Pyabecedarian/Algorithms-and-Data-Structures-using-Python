@@ -1,9 +1,14 @@
 """
-Implement a Layer Traversal algorithm for the binary tree.
+Implement a Layer Traversal algorithm for the binary tree. The traversal order like this has another name,
+`BFS` (Breadth First Search), we will see this in Stage_3.
 
                 7            traversal by layer
              1     2       --------------------->    [ 7, 1, 2, 3, 4, 6, 10 ]
            3  4  6  10
+
+Idea
+    Utilize a Queue to keep track of the left and right subtree if they are not None, then systematically check
+    the subtree in front of the tree.
 """
 from datastruct.collections import List
 from datastruct.abstract import Queue

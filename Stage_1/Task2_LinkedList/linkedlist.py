@@ -149,14 +149,13 @@ class LinkedList(object):
             p = p.next
             idx -= 1
 
+        # be careful when pop the last element we must change the self.tail
+        if p.next is self.tail:
+            self.tail = p
+
         # be careful that pop from an empty Linkedlist
         if p.next is not None:
             res = p.next.data
-
-            # be careful when pop the last element we must change the self.tail
-            if p.next is self.tail:
-                self.tail = p
-
             p.next = p.next.next
             self._size -= 1
         else:
