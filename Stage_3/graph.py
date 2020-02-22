@@ -72,6 +72,11 @@ class Vertex(object):
         self.key = key
         self.connected = {}  # { Vertex object: weight, ... }
 
+        # extended version
+        self.distance = 0
+        self.predecessor = None
+        self.color = 'white'
+
     def __str__(self):
         return f'{self.key}' + ' connected to ' + str([v.key for v in self.connected])
 
@@ -85,6 +90,9 @@ class Vertex(object):
     def get_weight(self, vert):
         assert isinstance(vert, Vertex)
         return self.connected.get(vert)
+
+    def get_pred(self):
+        return self.predecessor
 
 
 class Graph(object):
@@ -119,6 +127,8 @@ class Graph(object):
             to_vert = self.add_vertex_by_key(to_key)
 
         from_vert.add_connections(to_vert, weight)
+
+        return self
 
 
 if __name__ == '__main__':
