@@ -92,19 +92,19 @@ class BSTMap(object):
     def __len__(self):
         return self.size
 
-    def __repr__(self, node: BSTNode = None, i=0):
+    def __str__(self, node: BSTNode = None, i=0):
         node = node if node is not None else self.root
         s = ''
         if node is not None:
             gap = '\t' * i * bool(i)
             s += gap + ':-> ' * bool(i) + str(node.key) + ':' + str(node.value) + '\n'
             if node.has_left():
-                s += self.__repr__(node.left, i + 1)
+                s += self.__str__(node.left, i + 1)
             else:
                 if node.any_child():
                     s += '\t' + gap + ':-\n'
             if node.has_right():
-                s += self.__repr__(node.right, i + 1)
+                s += self.__str__(node.right, i + 1)
             else:
                 if node.any_child():
                     s += '\t' + gap + ':-\n'
@@ -177,8 +177,7 @@ class BSTMap(object):
 
             # 3. The node has both left and right child, find the successor.
             # Successor is the `next-largest` node in the tree, and it has no more than one child.
-            # child at most. The node will preserve the bst relationship for both of the existing left and right
-            # subtrees.
+            # The node will preserve the bst relationship for both of the existing left and right subtrees.
             elif node.has_both_children():
                 successor = self.findMin(node.right)
                 node.replace(successor.key, successor.value)
@@ -230,8 +229,8 @@ class BSTMap(object):
             node.value = value
 
     def put(self, key, value):
-        f = self.func
         """Add a key-value pair to the Map"""
+        f = self.func
         if self.root:
             self._put(key, value, self.root)
         else:

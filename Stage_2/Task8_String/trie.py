@@ -49,7 +49,7 @@ class TrieNode(object):
 class Trie(object):
     def __init__(self):
         self.root = TrieNode()
-        self.convert = HashTable(53)  # `53` is set appropriately that neither not too large to waste memory nor
+        self.convert = HashTable(53)  # `53` is set appropriately that neither too large to waste memory nor
                                       # too small to increase the probability of hash collision
 
         for i, c in enumerate('abcdefghijklmnopqrstuvwxyz'):

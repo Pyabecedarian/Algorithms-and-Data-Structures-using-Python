@@ -6,8 +6,8 @@ Idea:
     Use an Array to store all addresses of Node (for O(1) indexing/assignment)
     Use an LinkedList to store all data (for supporting any type)
 """
-import ctypes as c
 from datastruct.collections import Array
+import ctypes as c
 
 
 def deref(id):

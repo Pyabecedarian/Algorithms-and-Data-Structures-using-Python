@@ -27,8 +27,10 @@ Analysis
 """
 
 
-def merge_sort(alist: list) -> list:
+def merge_sort(alist: list, key=None) -> list:
     """split phase"""
+    f = key if key is not None else lambda x: x
+
     if len(alist) > 1:
         mid = len(alist) // 2
         l_half = alist[:mid]
@@ -37,15 +39,15 @@ def merge_sort(alist: list) -> list:
         # recursively split the list
         # Note that `merge_sort()` is capable of sorting list in place,
         # so no need to write explicitly: l_half = merge_sort(l_half)
-        merge_sort(l_half)
-        merge_sort(r_half)
+        merge_sort(l_half, key=key)
+        merge_sort(r_half, key=key)
 
         """merge phase"""
         i1 = i2 = 0
         k = 0
 
         while i1 < len(l_half) and i2 < len(r_half):
-            if l_half[i1] > r_half[i2]:
+            if f(l_half[i1]) > f(r_half[i2]):
                 alist[k] = r_half[i2]
                 i2 += 1
             else:
@@ -69,4 +71,8 @@ def merge_sort(alist: list) -> list:
 if __name__ == '__main__':
     alist = [5, 3, 1, 2]
     merge_sort(alist)
+    print(alist)
+
+    alist = [(5, 'a'), (3, 'b'), (1, 'c'), (2, 'd')]
+    merge_sort(alist, key=lambda x:x[0])
     print(alist)

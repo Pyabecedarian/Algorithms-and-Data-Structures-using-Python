@@ -131,6 +131,7 @@ class Array(object):
                 self.append(next(it))
             except StopIteration:
                 break
+        return self
 
     def insert(self, i, v):
         # 1. append v

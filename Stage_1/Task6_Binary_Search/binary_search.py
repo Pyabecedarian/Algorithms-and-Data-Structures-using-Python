@@ -2,7 +2,7 @@
 It's possible to take great advantage of the sorted list to speed up the search algorithm.
 
 Binary Search
-    starts by examining the middle item, if it does the item that we looking for, we are done. If the item we
+    starts by examining the middle item, if it is the item that we looking for, we are done. If the item we
     are searching is larger than the middle, we are sure that the entire lower half as well as the middle item
     can be eliminated from further consideration.
     By repeating this way on the upper half, we eliminate another half, therefore vastly reduce the searching space.

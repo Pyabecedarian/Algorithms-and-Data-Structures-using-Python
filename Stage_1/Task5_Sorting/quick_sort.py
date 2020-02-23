@@ -43,14 +43,15 @@ Analysis
 """
 
 
-def quick_sort(alist: list):
+def quick_sort(alist: list, key=None):
     """Entry function of quick sort"""
-    return quick_sort_helper(alist, 0, len(alist) - 1)
+    f = key if key is not None else lambda x: x
+    return quick_sort_helper(alist, 0, len(alist) - 1, f)
 
 
-def quick_sort_helper(alist: list, start: int, end: int):
+def quick_sort_helper(alist: list, start: int, end: int, f):
     """Helper function that implement partition process"""
-    # if `start == end`, shows the invoke reaches the base case (size 1 list)
+    # if `start == end`, means that the invocation reaches the base case (size 1 list)
     if start < end:
         # choose a `pivot`
         pivot = alist[start]
@@ -61,10 +62,10 @@ def quick_sort_helper(alist: list, start: int, end: int):
 
         # continuously move the wrong items and converge to split_point
         while True:
-            while left_marker <= right_marker and alist[left_marker] <= pivot:
+            while left_marker <= right_marker and f(alist[left_marker]) <= f(pivot):
                 left_marker += 1
 
-            while right_marker >= left_marker and alist[right_marker] >= pivot:
+            while right_marker >= left_marker and f(alist[right_marker]) >= f(pivot):
                 right_marker -= 1
 
             if left_marker <= right_marker:
@@ -82,8 +83,8 @@ def quick_sort_helper(alist: list, start: int, end: int):
         alist[right_marker] = pivot
 
         # recursively invoke partition
-        quick_sort_helper(alist, start, split_point - 1)
-        quick_sort_helper(alist, split_point + 1, end)
+        quick_sort_helper(alist, start, split_point - 1, f)
+        quick_sort_helper(alist, split_point + 1, end, f)
 
     return alist
 
@@ -91,3 +92,7 @@ def quick_sort_helper(alist: list, start: int, end: int):
 if __name__ == '__main__':
     a = [5, 1, 3, 9, 2, 4, 7]
     print(quick_sort(a))
+
+    a = [(5, 'a'), (1, 'b'), (3, 'c'), (9, 'd'), (2, 'e'), (4, 'f'), (7, 'g')]
+    quick_sort(a)
+    print(a)

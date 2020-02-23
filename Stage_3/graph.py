@@ -61,6 +61,7 @@ Possible methods of Graph() are as follows:
     > getVertex(vertKey)                : finds the vertex in the graph named by `vertKey`
     > in   statement
 """
+from datastruct.collections import HashTable
 
 
 class Vertex(object):
@@ -70,12 +71,16 @@ class Vertex(object):
 
     def __init__(self, key):
         self.key = key
-        self.connected = {}  # { Vertex object: weight, ... }
+        self.connected = {}   # { Vertex object: weight, ... }
 
         # extended version
         self.distance = 0
         self.predecessor = None
         self.color = 'white'
+
+        # for dfs
+        self.discovery = 0
+        self.finish_time = 0
 
     def __str__(self):
         return f'{self.key}' + ' connected to ' + str([v.key for v in self.connected])

@@ -41,13 +41,13 @@ Balanced Factor
             > if the node to be deleted has only on child node;
             > if the node to be deleted has both two children.
 
-            Fot the first case, node is a leaf:
+            For the first case, node is a leaf:
                 > if the node is a left child of its parent, the bf of parent decreases by 1;
                 > if the node is a right child, the bf of a parent increases by 1;
                 > after the change of the bf, if it is not zero, which means the parent node has no
                   child any more, we should recursively update the bf of the parent of parent node.
 
-            Fot the second case, node has only one child:
+            For the second case, node has only one child:
                 > all the children's bf under the node is unchanged;
                 > the height of the subtree in which the node located will decrease by 1;
                 > therefore the bf of the parent node is changed by increasing/decreasing 1 if the node itself is

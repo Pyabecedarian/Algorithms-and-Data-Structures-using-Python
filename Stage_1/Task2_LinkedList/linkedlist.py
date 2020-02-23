@@ -6,10 +6,10 @@ The structure seems like:
 
 We can define three different types of linkedlist according to the positions it holds:
     > LinkedList:
-    > Bidirectional LinkedList:
+    > Doubly LinkedList:
     > Cycle LinkedList
 
-Unlike array, linkedlist is capable of containing any type of data with any mount. Some possible operations
+Unlike array, linkedlist is capable of containing any number of data with any type. Some possible operations
 are as follows:
     > LinkedList():
     > append(item):

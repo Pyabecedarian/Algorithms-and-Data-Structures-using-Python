@@ -36,7 +36,7 @@ Problem Solving: the Word Ladder Problem
                        cool --- pool
 
         Suppose we have a vocabulary of a list of words, to build a ladder graph with edges that connects two
-        words which is different with only one letter, we could compare each word with every other word in
+        words that is different with only one letter, we could compare each word with every other word in
         vocabulary. In this way, roughly speaking, we need n^2 times of comparison. This works work fine if
         the vocabulary is small.
 

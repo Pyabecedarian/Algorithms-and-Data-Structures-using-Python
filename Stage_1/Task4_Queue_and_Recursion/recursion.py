@@ -12,7 +12,7 @@ Example: Sum of a List of Numbers
         else:
             return numList[0] + listsum(numList[1:])
 
-    print(listsum([5,7,9,11,13))
+    print listsum([5,7,9,11,13])
 
 
 Three Laws of Recursion

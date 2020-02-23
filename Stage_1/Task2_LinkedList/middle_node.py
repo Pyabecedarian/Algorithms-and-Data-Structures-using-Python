@@ -1,7 +1,7 @@
 """
 ★ Task: Find the middle node of a LinkedList ★
 
-Idea: Set two pointers, the second pointer takes twice the steps the first one does. When the second reaches
+Idea: Set two pointers, the second pointer takes twice the steps as the first one does. When the second reaches
 the end, the first points the middle node.
 """
 from datastruct.collections import LinkedList

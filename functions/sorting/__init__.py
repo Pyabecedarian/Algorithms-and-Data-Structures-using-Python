@@ -1,0 +1,6 @@
+from Stage_1.Task5_Sorting.bubble_sort import bubble_sort
+from Stage_1.Task5_Sorting.insertion_sort import insertion_sort
+from Stage_1.Task5_Sorting.selection_sort import selection_sort
+from Stage_1.Task5_Sorting.merge_sort import merge_sort
+from Stage_1.Task5_Sorting.quick_sort import quick_sort
+from Stage_2.Task10_Heap.heap_sort import heap_sort

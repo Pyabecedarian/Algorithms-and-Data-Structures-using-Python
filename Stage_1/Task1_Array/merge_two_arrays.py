@@ -16,7 +16,7 @@ def merge(arr1: Array, arr2: Array) -> Array:
 
     resArr = Array(arr1.type)
     it1, it2 = iter(arr1), iter(arr2)
-    tmp1, tmp2 = map(next, [arr1, arr2])
+    tmp1, tmp2 = map(next, [it1, it2])
 
     while True:
         if tmp1 >= tmp2:
