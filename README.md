@@ -125,10 +125,20 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
     
 ### Task 10: Heap (2 Days)
 - Implement a *Min Heap* or *Max Heap* or *Priority Queue* [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task10_Heap/priority_queue.py)
-- Write a heap sort algorithm
+- Write a heap sort algorithm [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task10_Heap/heap_sort.py)
 - Merge k sorted list using priority queue [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task10_Heap/merge_lists.py)
 - Find the top-k largest number in a collection of numbers [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_2/Task10_Heap/topK_largest.py)
 #### Problem Sets 10:
 - [Path Sum](https://leetcode.com/problems/path-sum/)
     
     
+### Task 11: Graph (4 Days)
+- Implement a Graph using `adjacent list` representation [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/graph.py)
+- Implement the following two searching algorithms on a graph
+  - the Breadth First Search (BFS) [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/breadth_first_search.py)
+  - the Depth First Search (DFS) [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/depth_first_search.py)
+- Implement the Dijkstra Algorithm [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/dijkstra.py)
+- Implement Topological Sorting
+#### Problem Sets 11:
+- [Number of Islands](https://leetcode.com/problems/number-of-islands/description/)
+- [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
