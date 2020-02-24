@@ -173,3 +173,6 @@ if __name__ == '__main__':
 
     l[:-1] = ['s', 1, 0.1]
     print(l)
+
+    l.append(1)
+    print(l)

@@ -76,15 +76,7 @@ class BinaryHeap(object):
         x = len(self.heapList) - 1
 
         # keep swapping until value >= parent.root
-        f = self.func
-        while x // 2 > 0:
-            if f(self.heapList[x]) < f(self.heapList[x // 2]):
-                tmp = self.heapList[x // 2]
-                self.heapList[x // 2] = self.heapList[x]
-                self.heapList[x] = tmp
-                x //= 2
-            else:
-                break
+        self._percUp(x)
 
     def heappop(self):
         """
@@ -99,6 +91,18 @@ class BinaryHeap(object):
 
             self._percDown(1)  # swap the top value to proper position
             return res
+
+    def _percUp(self, p):
+        """Swapping the value at position p up the root until a proper position has reached."""
+        f = self.func
+        while p // 2 > 0:
+            if f(self.heapList[p]) < f(self.heapList[p // 2]):
+                tmp = self.heapList[p // 2]
+                self.heapList[p // 2] = self.heapList[p]
+                self.heapList[p] = tmp
+                p //= 2
+            else:
+                break
 
     def _percDown(self, p):
         """
@@ -153,6 +157,21 @@ class BinaryHeap(object):
             self._percDown(1)
             return res
 
+    def percItem(self, obj):
+        """If the priority of and object that already in heap has changed, we need
+        to percolate the item to a proper position.
+
+        This situation would happen if the values in heapList are mutable variables and one can change it priority
+        outside of the heap after the heap structure has been constructed.
+
+        For example, in Dijkstra's algorithm, a heap is used to keep track of the current distance of the vertex to
+        the start node. If a shorter path has found, the vertex distance is changed and therefore the vertex's position
+        in heap need to percolate.
+        """
+        p = self.heapList.index(obj)
+        self._percDown(p)
+        self._percUp(p)
+
 
 if __name__ == '__main__':
     bh = BinaryHeap()
@@ -162,10 +181,9 @@ if __name__ == '__main__':
 
     # test what function do
     bh = BinaryHeap(lambda x: x[1])
-    bh.heappush(('good', 0))
-    bh.heappush((3.14,   4))
-    bh.heappush((False, -2))
-    bh.heappush(('bad',  1))
-
-    print(bh.heappushpop(('12', 12)))
+    a = [False, 0]
+    bh.heapify([ a, [3.14,   4], ['good', -2], ['bad',  1] ])
+    print(list(bh.items()))
+    a[1] = -5
+    bh.percItem(a)
     print(list(bh.items()))

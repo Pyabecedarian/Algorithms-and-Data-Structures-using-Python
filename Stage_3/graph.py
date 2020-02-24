@@ -85,6 +85,9 @@ class Vertex(object):
     def __str__(self):
         return f'{self.key}' + ' connected to ' + str([v.key for v in self.connected])
 
+    def __repr__(self):
+        return f'Vertex:`{self.key}`'
+
     def add_connections(self, vert, weight=0):
         assert isinstance(vert, Vertex)
         self.connected[vert] = weight
@@ -110,6 +113,9 @@ class Graph(object):
 
     def __contains__(self, key):
         return key in self.vertices_list
+
+    def __getitem__(self, key):
+        return self.get_vertex(key)
 
     def get_vertex(self, key):
         """Return the vertex object by key, or None if the key is not in vertices list."""
