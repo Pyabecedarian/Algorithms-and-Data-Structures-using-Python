@@ -2,6 +2,15 @@
 Dijkstra's Algorithm
     can determine the shortest weighted path from a particular node to all other nodes in a graph. This is
     similar to BFS.
+                    V ----- 3 ----- W ---
+                  / :         --- / :    \
+                2   :       /   /   :     5
+              /     :     5   /     :      \
+            U --------- /   3       1       Z
+             \      :     /         :     /
+              1     2   /           :   1
+               \    : /             : /
+                --- X ----- 1 ----- Y
 
     To keep track of the total cost from start node to each destination we will make use of the `distance`
     instance variable in Vertex class.
@@ -94,8 +103,6 @@ if __name__ == '__main__':
     g.add_edge('w', 'y', 1).add_edge('y', 'w', 1)
     g.add_edge('w', 'z', 5).add_edge('z', 'w', 5)
     g.add_edge('y', 'z', 1).add_edge('z', 'y', 1)
-    for v in g:
-        v.distance = float('inf')
 
     Dijkstra(g, 'u')
     path(g, 'u', 'z')

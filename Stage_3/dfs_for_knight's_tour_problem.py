@@ -68,7 +68,7 @@ def dfs(n: int, limit: int, path: list, v: Vertex):
     The function will be recursively invoked, where
         :argument n: the current path length
         :argument limit: the final length of the solution
-        :argument path: a list containing vertices tp build the path for the solution
+        :argument path: a list containing vertices to build the path for the solution
         :argument v: a vertex that is going to be searched in this invocation
 
     NOTE:

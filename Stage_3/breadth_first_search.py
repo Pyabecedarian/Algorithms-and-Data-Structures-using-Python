@@ -100,11 +100,11 @@ def build_ladder_graph(vocab_file) -> Graph:
     return g
 
 
-def dfs(g: Graph, s):
+def bfs(g: Graph, s):
     """
-    The Breadth First Search algorithm of a graph.
+    The Breadth First Search algorithm of a graph given a start vertex s.
     :param G: a graph object
-    :param s: start vertex key
+    :param s: key of the start vertex
     """
     start = g.get_vertex(s)
     start.distance = 0
@@ -136,14 +136,13 @@ def traverse(g: Graph, s):
 
 
 if __name__ == '__main__':
-    file = 'vocab.txt'
+    file = './vocab.txt'
     g = build_ladder_graph(file)
-    print(g)
     for v in g:
         print(v)
 
     # find the shortest path using bfs
-    dfs(g, 'fool')
+    bfs(g, 'fool')
 
     # traverse back through the graph
     traverse(g, 'sage')

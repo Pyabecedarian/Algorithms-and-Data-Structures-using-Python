@@ -2,7 +2,10 @@
 The Depth First Search (DFS)
 
     The goal of a dfs is to search as deeply as possible, connecting as many nodes in the graph as possible and
-    branching where necessary. As with bfs the dfs makes use of `predecessor` links to construct the tree. In
+    branching where necessary. Think of the BFS that builds a search tree one level at a time, whereas the DFS
+    creates a search tree by exploring one branch of the tree as deeply as possible.
+
+    As with bfs the dfs makes use of `predecessor` links to construct the tree. In
     addition, the dfs will make use of two additional instance variables in the Vertex class, `discovery` and
     `finish_time`.
 
@@ -19,10 +22,14 @@ class DFSGraph(Graph):
         super(DFSGraph, self).__init__()
         self.time = 0
 
-    def dfs(self):
+    def reset(self):
+        self.time = 0
         for v in self:
             v.color = 'white'
-            v.predecessor = -1
+            v.predecessor = None
+
+    def dfs(self):
+        self.reset()
 
         for v in self:
             if v.color == 'white':

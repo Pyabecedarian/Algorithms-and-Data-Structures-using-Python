@@ -1,8 +1,10 @@
 """
 ★ Task: To implement an array, supporting dynamic storage expansion ★
+
 Cause we have python's built-in list, the concept and implementation of array is invisible in daily use.
-But to understand the idea of array, which is widely used in other languages, and its implementation can
+But to understand the idea and implementation of array, which is widely used in other languages, can
 help us dig deeper and know better about python list.
+
 ==========  Big-O Efficiency of Python list Operations  ==========
     Operation                             Big-O Efficiency
 ------------------------------------------------------------------
@@ -25,12 +27,15 @@ multiply                                        O(nk)
 ==================================================================
 As shown in the table above, python list is efficient in indexing/assignment and append/pop in the end
 of the list. We also have to remember that python list support any type of data being stored.
+
 An array in C/C++ is a linear structure allocated in a contiguous space in memory, which performs O(1)
 efficiency in indexing/assignment, but can only store fixed number of data with same data type.
+
 An linked-list, however, can store any type and any number of data with O(1) efficiency in append/pop
 in the end.
-In practice, python list is a comprehensive of linked-list and array combined. To make life easy, we can
-use ctypes module to simulate arrays in python
+
+In practice, python list is a comprehensive of linkedlist and array combined. To make life easy, we can
+use ctypes module to simulate arrays in python.
 """
 from ctypes import *
 
@@ -39,16 +44,16 @@ _types_ = {int: [c_longlong, "int"],
            float: [c_float, "float"],
            bytes: [c_char, "bytes"],
            str: [c_wchar_p, "str"],
-           None: [c_void_p, "None"],
-           }
+           None: [c_void_p, "None"]}
 
 
 def _new_array(ctype, size):
-    """Create an array"""
+    """Create an ctypes.Array object given the ctype and the size of array."""
     return (size * ctype)()
 
 
 def _get_index(k, size):
+    """Return the positive index k from a given size, compatible with python list index."""
     if k < 0: k += size
     if not 0 <= k < size:
         raise KeyError('Index out of bound!')
@@ -59,8 +64,8 @@ class Array(object):
     def __init__(self, pytype=None, size=1, *args):
         """
         To initiate an array, one must specify the data type and total length
-        :param pytype: The fundamental data type of each element, must be one of {int, float, bool, None, str}
-        :param size: Indicate how many elements being stored
+        :param pytype: The primitive data type of each element, must be one of {int, float, bool, None, str}
+        :param size: Indicate how many elements is stored
         """
         self._pytype = pytype
         self._ctype, self._tname = _types_[pytype]
@@ -69,7 +74,7 @@ class Array(object):
         self._i = 0  # for iteration
         self._A = _new_array(self._ctype, self._size)
 
-        if 'full' in args:
+        if 'full' in args:  # to initiate a fully sized array with default value
             self._n = size
 
     def __len__(self):
@@ -94,12 +99,15 @@ class Array(object):
         return self._A[i]
 
     def __getitem__(self, k):
+        """Indexing to array"""
         k = _get_index(k, len(self))
         return self._A[k]
 
     def __setitem__(self, k, v):
+        """Assignment of array"""
         k = _get_index(k, len(self))
         if self._pytype is None:
+            # if type is None, the array will compatible with int type
             pass
 
         elif not isinstance(v, self._pytype):
@@ -111,7 +119,7 @@ class Array(object):
 
     def _resize(self):
         """If try to add more elements in array, it'll automatically resize (double the size)"""
-        self._size, oldSize = 2 * self._size, self._size
+        self._size *= 2
         tmpA = _new_array(self._ctype, self._size)
         for i in range(self._n):
             tmpA[i] = self._A[i]
@@ -145,7 +153,7 @@ class Array(object):
             j -= 1
 
     def pop(self, k=-1):
-        """Pop the item at idx"""
+        """Pop the item at index k"""
         k = _get_index(k, len(self))
         res = self._A[k]
         while k < len(self) - 1:

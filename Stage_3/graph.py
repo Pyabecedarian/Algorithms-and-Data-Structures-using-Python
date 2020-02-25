@@ -71,16 +71,21 @@ class Vertex(object):
 
     def __init__(self, key):
         self.key = key
-        self.connected = {}   # { Vertex object: weight, ... }
+        self.connected = HashTable()  #{}   # { Vertex object: weight, ... }
 
-        # extended version
-        self.distance = 0
-        self.predecessor = None
+        '''extended version for bfs'''
+        # color:
+        #   'white` indicating that a vertex is not encountered;
+        #   'gray'  indicating that a vertex is being explored;
+        #   'black' indicating that a vertex has been explored
         self.color = 'white'
 
-        # for dfs
-        self.discovery = 0
-        self.finish_time = 0
+        self.distance = float('inf')   # means the current path length from start node to this node
+        self.predecessor = None        # will point to the parent vertex under bfs
+
+        '''for dfs'''
+        self.discovery = 0    # count the number that this vertex is first explored
+        self.finish_time = 0  # count the number that all paths has been discovered under this vertex
 
     def __str__(self):
         return f'{self.key}' + ' connected to ' + str([v.key for v in self.connected])
@@ -108,6 +113,8 @@ class Graph(object):
         self.vertices_list = {}
         self.num_verts = 0
 
+        self.last_add_vert = None
+
     def __iter__(self):
         return iter(self.vertices_list.values())
 
@@ -115,7 +122,10 @@ class Graph(object):
         return key in self.vertices_list
 
     def __getitem__(self, key):
-        return self.get_vertex(key)
+        v = self.get_vertex(key)
+        if not v:
+            raise KeyError(f'{key} is not in graph.')
+        return v
 
     def get_vertex(self, key):
         """Return the vertex object by key, or None if the key is not in vertices list."""
@@ -138,7 +148,16 @@ class Graph(object):
             to_vert = self.add_vertex_by_key(to_key)
 
         from_vert.add_connections(to_vert, weight)
+        self.last_add_vert = to_vert
+        return self
 
+    def add_next(self, next_key, weight=0):
+        """Add an edge that connects the last added vertex by `add_edge()` to next vertex"""
+        to_vert = self.vertices_list.get(next_key)
+        if to_vert is None:
+            to_vert = self.add_vertex_by_key(next_key)
+        self.last_add_vert.add_connections(to_vert, weight)
+        self.last_add_vert = to_vert
         return self
 
 

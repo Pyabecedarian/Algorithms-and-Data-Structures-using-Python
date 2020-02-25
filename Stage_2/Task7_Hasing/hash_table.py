@@ -71,14 +71,11 @@ class HashTable(object):
         self.payloads = List([None] * size)
         self._k = 0
 
-    def __repr__(self):
-        s = ''
-        for ks, vs in zip(self.slots, self.payloads):
-            if ks:
-                for k, v in zip(ks, vs):
-                    kv_pair = f'{str(k)}: {str(v)}, '
-                    s += kv_pair
-        return f"HashTable([ {s[:-2]} ])"
+    def __str__(self):
+        s = List()
+        for key, value in self.items():
+            s.append(f'{str(key)}: {str(value)}')
+        return f'Hashtable([ {", ".join(s)} ])'
 
     def __len__(self):
         return self._k
@@ -87,16 +84,12 @@ class HashTable(object):
         return self.keys()
 
     def keys(self):
-        for slot_keys in self.slots:
-            if slot_keys is not None:
-                for key in slot_keys:
-                    yield key
+        for key, _ in self.items():
+            yield key
 
     def values(self):
-        for payload in self.payloads:
-            if payload is not None:
-                for value in payload:
-                    yield value
+        for _, value in self.items():
+            yield value
 
     def items(self):
         for slot_keys, payload in zip(self.slots, self.payloads):
@@ -129,16 +122,18 @@ class HashTable(object):
         self.put(key, value)
 
     def _hash(self, key):
-        """Very simple hash function that only support int and str type."""
+        """Very simple hash function"""
         hashvalue = 0
         if isinstance(key, int):
             hashvalue = key
         elif isinstance(key, str):
             for i, c in enumerate(key):
                 hashvalue += (i + 1) * ord(c)
+        else:
+            # the key would be any type or any object in python, we use id(key) for hashing
+            return self._hash(id(key))
 
-        hashvalue = hashvalue % self._size
-        return hashvalue
+        return hashvalue % self._size
 
     def put(self, key, value):
         hash_value = self._hash(key)
@@ -164,7 +159,7 @@ class HashTable(object):
     def get(self, key, default=None):
         hash_value = self._hash(key)
 
-        if not self.slots[hash_value]:
+        if self.slots[hash_value] is None:
             return default
         else:
             try:
@@ -189,3 +184,7 @@ if __name__ == '__main__':
 
     del t['a']
     print(len(t))
+
+    t[int] = 10
+    print(t[int])
+    print(list(t.keys()))
