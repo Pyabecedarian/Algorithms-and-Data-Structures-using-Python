@@ -138,7 +138,7 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
   - the Breadth First Search (BFS) [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/breadth_first_search.py)
   - the Depth First Search (DFS) [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/depth_first_search.py)
 - Implement the Dijkstra Algorithm [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/dijkstra.py)
-- Implement Topological Sorting
+- Implement Topological Sorting [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/topological_sort.py)
 #### Problem Sets 11:
 - [Number of Islands](https://leetcode.com/problems/number-of-islands/description/)
 - [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
