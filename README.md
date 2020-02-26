@@ -133,12 +133,26 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
     
     
 ### Task 11: Graph (4 Days)
-- Implement a Graph using `adjacent list` representation [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/graph.py)
+- Implement a Graph using `adjacent list` representation [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/Task11_Graph/graph.py)
 - Implement the following two searching algorithms on a graph
-  - the Breadth First Search (BFS) [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/breadth_first_search.py)
-  - the Depth First Search (DFS) [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/depth_first_search.py)
-- Implement the Dijkstra Algorithm [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/dijkstra.py)
-- Implement Topological Sorting [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/topological_sort.py)
+  - the Breadth First Search (BFS) [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/Task11_Graph/breadth_first_search.py)
+  - the Depth First Search (DFS) [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/Task11_Graph/depth_first_search.py)
+- Implement the Dijkstra Algorithm [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/Task11_Graph/dijkstra.py)
+- Implement Topological Sorting [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/Task11_Graph/topological_sort.py)
 #### Problem Sets 11:
 - [Number of Islands](https://leetcode.com/problems/number-of-islands/description/)
 - [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
+
+
+### Task 12: Recursion + Backtracking + Divide & Conquer
+- **Recursion**
+  - Climb Stairs [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/Task12_Recursion_Backtracking_Divide&Conquer/climbing_stairs.py)
+- **Backtracking**
+  - The Eight Queen Puzzle [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/Task12_Recursion_Backtracking_Divide&Conquer/eight_queen_puzzle.py)
+  - 0/1 Knapsack Problem [▸]()
+- **Divide & Conquer**
+  - Calculate the number of reversed order pairs in a set of data
+#### Problem Sets 12:
+- [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+- [permutations](https://leetcode.com/problems/permutations/)
+- [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/)
