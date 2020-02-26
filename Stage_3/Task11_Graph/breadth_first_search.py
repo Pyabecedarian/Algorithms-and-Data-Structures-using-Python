@@ -136,7 +136,7 @@ def traverse(g: Graph, s):
 
 
 if __name__ == '__main__':
-    file = './vocab.txt'
+    file = 'vocab.txt'
     g = build_ladder_graph(file)
     for v in g:
         print(v)
