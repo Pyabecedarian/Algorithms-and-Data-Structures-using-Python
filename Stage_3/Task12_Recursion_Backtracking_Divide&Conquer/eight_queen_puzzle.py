@@ -24,7 +24,7 @@ not be placed in the block that is of the same row, column and diagonal.
 
 Idea:
     The rule of the game tells that each row on the chessboard can place only ONE queen, the same as column.
-    So we can try to place a queen on each row once at a time. Let's define the representation of the queen's
+    So we can try to place a queen on each row one at a time. Let's define the representation of the queen's
     position.
     We can represent the coordinate of the queen in a two dimensional matrix:
                                     [ 0, 1, 0, 0 ]
@@ -39,12 +39,12 @@ Idea:
     Representation:
     The first queen on the first row can be placed at any column in the beginning since there is no other
     queens on the board. But starts with the second queen, there will be some areas that cause `conflict`
-    with the first queen. So we need a function that defines the conflict.
+    with the previously added queens. So we need a function that defines the conflict.
 
 
     Conflicts:
     The blocks are of the same rows and columns with the blocks that all the queens have been placed
-    are not legal blocks. If `nextX` is the next column the queen is going to be placed, such that
+    are not legal. If `nextX` is the next column the queen is going to be placed, such that
                                    s[i] - nextX != 0,  for all i
 
     Again, the coordinate of the next queen is not allowed to be on the diagonal blocks of all previous queens,
@@ -56,8 +56,8 @@ Idea:
 
 
     Procedure:
-    We could first place a queen (row 1) at column 1, then to find the legal blocks for the next queen.
-    Once we get the next legal blocks, we choose a block and find the next legal blocks for the third
+    We could first place a queen (row 1) at column 1, then find the legal blocks for the next queen.
+    Once we get the next legal blocks, we choose one of the blocks and find the next legal blocks for the third
     queen. Do the procedure until we find that:
         > 1. we have placed 8 queens, therefore the solution has found;
         > 2. we have no legal block for the next queen, thus we may think that the block of last queen
@@ -67,7 +67,7 @@ Idea:
 
     Implementation:
     See the procedure above, we need another function that can produce the legal blocks for the next queen.
-    Given the previous queens' position, how could we produce all next legal blocks? Since we place the
+    Given the previous queens' positions, how could we produce all next legal blocks? Since we place the
     queens row by row, so the next queen's column must be in range of [0, n], while not meet the conflict
     condition.
 
@@ -84,7 +84,7 @@ Idea:
     our main function will do as the same as what `next_positions()` did.
 
     Next we need to move the general case towards the base case in order to complete the recursion.
-    We need the state `s` containing all the previous queens' position increases to length n - 1, we can
+    We need the state `s` containing all the previous queens' positions increases to length n - 1, we can
     add s with the position produces by last invocation. Therefore we need to change the return type to a
     tuple of length 1 other than a int.
 
@@ -135,8 +135,17 @@ def queen_final(n: int = 8, s: tuple = ()):
             if len(s) == n - 1:
                 yield (pos, )
             else:
-                for next_pos in queen(n, s + (pos,)):
+                for next_pos in queen_final(n, s + (pos,)):
                     yield (pos,) + next_pos
+
+
+def print_queens(solution: tuple):
+    """Print the solution"""
+    print()
+    n = len(solution)
+    for x in solution:
+        line = '.\t' * x + 'X\t' + '.\t'*(n-1-x)
+        print(line)
 
 
 if __name__ == '__main__':
@@ -144,3 +153,11 @@ if __name__ == '__main__':
     print(list(queen(4, (1, 3, 0))))  # base case
     print(list(queen(4)))
     print(list(queen_final(4)))
+
+    # solution of 8x8 chessboard
+    print(len(list(queen_final(8))))  # 92
+
+    solution = queen_final(8)
+    print_queens(next(solution))
+    print_queens(next(solution))
+    print_queens(next(solution))

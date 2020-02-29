@@ -45,6 +45,7 @@ Idea:
                                                f(5)
                                         f(4)          f(3)
                                     f(3)   f(2)   f(2)   f(1)
+
         To compute f(5) we have to compute f(4) and f(3), but to compute f(4) we need to compute f(3) again.
         This problem will be more severe when n is large. Why not store all the results in the lower level
         to compute the higher level problem?
@@ -69,7 +70,7 @@ def climb_stairs_recursion(n: int) -> int:
 
 
 def climb_stairs_dp(n: int) -> int:
-    res = [0, 1, 2]
+    res = [None, 1, 2]
     for i in range(3, n+1):
         res.append(res[i-1] + res[i-2])
     return res[n]
@@ -89,6 +90,6 @@ def climb_stairs_final(n: int) -> int:
 
 
 if __name__ == '__main__':
-    print(climb_stairs_recursion(4))
-    print(climb_stairs_dp(4))
-    print(climb_stairs_final(4))
+    print(climb_stairs_recursion(5))
+    print(climb_stairs_dp(5))
+    print(climb_stairs_final(5))
