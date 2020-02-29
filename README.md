@@ -149,7 +149,7 @@ Array -> Linked List -> Stack -> Queue -> Recursion -> Sort -> Binary Search -> 
   - Climb Stairs [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/Task12_Recursion_Backtracking_Divide&Conquer/climbing_stairs.py)
 - **Backtracking**
   - The Eight Queen Puzzle [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/Task12_Recursion_Backtracking_Divide&Conquer/eight_queen_puzzle.py)
-  - 0/1 Knapsack Problem [▸]()
+  - 0/1 Knapsack Problem [▸](https://github.com/Pyabecedarian/Algorithms-and-Data-Structures-using-Python/blob/master/Stage_3/Task12_Recursion_Backtracking_Divide&Conquer/knapsack_problem.py)
 - **Divide & Conquer**
   - Calculate the number of reversed order pairs in a set of data
 #### Problem Sets 12:
